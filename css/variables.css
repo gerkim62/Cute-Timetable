@@ -1,0 +1,19 @@
+:root {
+  /*UI Theme Colors*/
+  --color-primary: #6568d3;
+  --color-secondary: #f1fdf3;
+
+  /*Timetable Courses Colors*/
+  --color-course-1: #ea098c;
+  --color-course-2: #0291c8;
+  --color-course-3: #9d1f81;
+  --color-course-4: #5e2988;
+  --color-course-5: #b51d60;
+  --color-course-6: #33a04a;
+  --color-course-7: #c63e37;
+  --color-course-8: #536b2d;
+  --color-course-9: #20ade8;
+  --color-course-10: #92242d;
+  --color-course-11: #1e3f90;
+}
+

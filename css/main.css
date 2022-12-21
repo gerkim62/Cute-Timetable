@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
+
+body{
+  background: var(--color-secondary);
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  top:0;
+  width: 100vw;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  z-index: 205;
+  background: var(--color-secondary);
+}
+
+.header-space-replacement{
+  background: red;
+  height: 50px;
+  background: transparent;
+}
+
+.title{
+  position: relative;
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  z-index: 120000;
+  letter-spacing: 1px;
+}
+
+.title.secondary{
+  color: var(--color-secondary);
+  position: absolute;
+  top:10px;
+}
+
+.file-upload{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 0px;
+  /*display: none;*/
+  
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.upload-message{
+  max-width: 80vw;
+  text-align: center;
+  margin: 10px;
+  margin-top: 5px;
+  color: var(--color-primary);
+  font-weight: bold;
+  letter-spacing: .5px;
+  
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*
+.file-upload button{
+  padding:7.5px 20px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 20px;
+  border: 1px solid;
+  margin: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "Papyrus";
+  outline: none;
+}*/
+
+button:hover{
+  animation:  bubbleOut .7s;
+}
+
+button:active{
+  animation: bubbleIn .7s;
+}
+
+#csv-upload{
+  width:50vw;
+  min-width: 200px;
+  margin: 5px;
+  text-transform: uppercase;
+  padding: 5px;
+  border-radius: -5px;
+  
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.upload{
+  margin: 20px;
+  
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+}
+
+.upload-btn,#custom-button {
+  padding: 10px;
+  color: white;
+ background: var(--color-primary);
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  transition: .7s;
+  outline: 0;
+  font-weight: bold;
+  letter-spacing:1px;
+  
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.upload-btn{
+  padding: 10px 20px;
+  margin-top: 30px;
+  display: none;
+  
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#custom-button {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 1px solid;
+  
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#custom-text {
+  margin-left: 10px;
+  font-family: sans-serif;
+  color: #aaa;
+  font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+@keyframes bubbleOut{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(1)
+  }
+}
+
+@keyframes bubbleIn{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(.8);
+  }
+  100%{
+    transform: scale(1)
+  }
+}

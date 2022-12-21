@@ -1,0 +1,227 @@
+@font-face {
+  font-family: 'Papyrus';
+  src: url('../fonts/papyrus.ttf');
+}
+
+
+#timetable-container{
+  overflow-x: scroll;
+  padding: 5px;
+  margin: 5px;
+  letter-spacing: .5px;
+  
+  font-family: "Papyru", "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 201;
+}
+
+table,
+table th{
+  border: 1px solid var(--color-primary);
+}
+
+table, td, tr, th{
+  user-select: none;
+}
+
+table tr th p{
+  font-size: .75rem;
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  
+}
+
+table th{
+  font-size: .75rem;
+  padding: -1px;
+  color: rgba(0, 0, 0, .75);
+  color:var(--color-primary);
+}
+
+table th:first-child{
+  padding: 0 10px;
+}
+
+table td {
+  background: var(attr(data-color));
+  color: White;
+  font-weight: 700;
+  padding: 5px;
+  font-size: .75rem;
+  white-space: nowrap;
+}
+
+table td:hover{
+  opacity: .6;
+}
+
+table td.following-unscheduled {
+  border-left: 1px solid rgba(0, 0, 0, .2);
+}
+
+table td.below-unscheduled {
+  border-top: 1px solid rgba(0, 0, 0, .2);
+}
+
+table td.unscheduled {
+  background: transparent;
+  color: rgba(0, 0, 0, .25);
+}
+
+/*card*/
+.card {
+  width: 200px;
+  min-height: max-content;
+  background: #fff;
+  margin:10px auto;
+  
+  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  transition: 0s;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  color: #6568d3;
+  background: #f1fdf3;
+  position: relative;
+  left: 30px;
+  z-index: 201;
+  opacity:1;
+  animation-fill-mode: forwards;
+}
+
+.card ul li {
+  list-style: none;
+  text-align: left;
+  margin: 0;
+  margin-left: 3px;
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  letter-spacing: .5px;
+  
+  width: 100%;
+  border-bottom: 1px solid rgba(0,0,0,.075);
+}
+
+.card ul li:last-child{
+  border-bottom-color: rgba(0,0,0,0);
+}
+
+.card ul li:hover{
+  border-bottom: 1px solid currentColor;
+  background: rgba(0,0,0,.05);
+}
+
+.card ul li i{
+  text-align: center;
+  width: 1rem !important;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  flex-shrink:0;
+  font-size: 1.15rem;
+}
+
+.card ul li p{
+  margin-left: 5px;
+  width: 100%;
+  padding: 5px;
+  
+}
+
+.card ul li p:hover{
+  /*background: rgba(0, 0, 0, 0.2);*/
+}
+
+
+
+.card ul {
+  padding: 10px;
+  
+  z-index: 100;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: -11px;
+}
+
+.container:hover .card {
+  filter: blur(20px);
+  transform: scale(0.9);
+  opacity: 0.5;
+}
+
+.card:hover {
+  filter: blur(0px);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.card .circle {
+  margin-bottom: -18px;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(60px at center -10px);
+  text-align: center;
+  background: #6568d3;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card .circle h2 {
+  color: #fff;
+  font-size: 1rem;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -15px;
+  margin: 0;
+  letter-spacing: .5px;
+}
+
+.card .content {
+  padding: 0px;
+  page-break-after: 20px;
+  text-align: center;
+}
+
+.card .close{
+  position: absolute;
+  right: 3px;
+  top:-5px;
+  font-size: 1.5rem;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  outline: none;
+}
+
+.card-overlay{
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  opacity: .05;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+}

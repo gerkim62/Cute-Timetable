@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="js/dom.js"></script>
+  <script defer src="js/nav.js"></script>
+  <script type="module" src="js/main.js"></script>
+  <title>Beautiful UEAB Student's Timetable - made by Gerison</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://kit.fontawesome.com/ec6d630e9e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/utility.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/timetable.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>
+    eruda.init();
+  </script>
+
+</head>
+
+<body>
+  <!--since header is position fixed-->
+  <div class="header-space-replacement"></div>
+  <header>
+    
+    <h1 class="title">Timetable</h1>
+    
+     <div class="nav-open-btn">
+       <div class="nav-open-btn__bar"></div>
+       <div class="nav-open-btn__bar"></div>
+       <div class="nav-open-btn__bar"></div>
+     </div>
+  </header>
+  
+  <div id="timetable-container">
+
+  </div>
+
+  <nav class="nav">
+    <!--close button-->
+    <h1 class="title secondary">Timetable</h1>
+    
+    <div class="nav__close"></div>
+    <!--navigation list-->
+    <ul class="nav__list">
+      <!--navigation item-->
+      <li class="nav__item">
+        <!--navigation link--><a class="nav__link" title="Home"><i class="nav__link-icon far fa-folder"></i><p>Saved Timetables</p></a>
+      </li>
+      <!--navigation item-->
+      <li id="new-timetable" class="nav__item">
+        <!--navigation link--><a class="nav__link" title="About"><i class="nav__link-icon far fa-plus-square"></i><p>Create New</p></a>
+      </li>
+      <!--navigation item-->
+      <li class="nav__item">
+        <!--navigation link--><a class="nav__link" title="Tour"><i class="nav__link-icon fas fa-coins"></i><p>Support Me</p></a>
+      </li>
+      <!--navigation item-->
+      <li class="nav__item">
+        <!--navigation link--><a class="nav__link" title="Settings"><i class="nav__link-icon far fa-envelope"></i><p>Contact Me</p></a>
+      </li>
+      <!--navigation item-->
+      <li class="nav__item">
+        <!--navigation link--><a class="nav__link" title="Plans"><i class="nav__link-icon far fa-lightbulb"></i><p>Suggestions</p></a>
+      </li>
+      <!--navigation item-->
+      <li class="nav__item">
+        <!--navigation link--><a class="nav__link" title="Log In"><i class="nav__link-icon fas fa-exclamation-triangle"></i><p>Report an Error</p></a>
+      </li>
+      <li class="nav__item">
+        <!--navigation link--><a class="nav__link" title="Log In"><i class="nav__link-icon fas fa-info-circle"></i><p>About</p></a>
+      </li>
+    </ul>
+  </nav>
+  
+       
+
+  <div id="upload-ui" class="file-upload">
+    <p class="upload-message"> Upload CSV file to generate your first Cute timetable! </p>
+    <div class="upload">
+      <input type="file" id="real-file" hidden="hidden" />
+      <button type="button" id="custom-button"> UPLOAD CSV </button>
+      <span id="custom-text"> Click to Select </span>
+
+    </div>
+    <button class="upload-btn"> UPLOAD </button>
+   <p style="text-align: left;font-size: .75rem;color:black" class="upload-message">Need help finding your CSV file? <a href="https://www.yourwebsite.com/csv-download-instructions">Click here</a> </p>
+
+  </div>
+
+    <div id="card-overlay" class="card-overlay hidden"> </div>
+  <div id="properties-card" class="card hidden">
+    
+
+    
+    <button id="close-properties" class="close">
+      ×
+    </button>
+    
+    <div class="circle">
+      <h2 id="code">ENGL105</h2>
+    </div>
+    <div class="content">
+      <ul>
+        <li tooltip="Title" flow="left"><i class="fa fa-book"> </i>
+          <p id="title">Introduction to Sociology</p>
+        </li>
+        <li tooltip="Instructor" flow="left"><i class="fa fa-user-tie"></i>
+          <p id="instructor"> Odek Salome</p>
+        </li>
+        <li tooltip="Building" flow="left"><i class="fa  fa-building"></i>
+          <p id="building"> Amphitheatre</p>
+        </li>
+        <li tooltip="Location" flow="left"><i class="fa  fa-map-marker"></i>
+          <p id="location"> Amphitheatre</p>
+        </li>
+        <li tooltip="Venue" flow="left"><i class="fa  fa-university"></i>
+          <p id="venue"> Amphitheatre</p>
+        </li>
+        <li tooltip="Option" flow="left"><i class="fa  fa-users"></i>
+          <p id="group"> Group B</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
