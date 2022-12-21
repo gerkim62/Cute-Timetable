@@ -74,4 +74,3 @@ newTimetable_li.addEventListener('click',showCsvUploadUI)
 
 closePropertiesCard_button.addEventListener('click', hideProperties)
 propertiesCardOverlay_div.addEventListener('click', hideProperties)
-navOverlay_div.addEventListener('click',)
