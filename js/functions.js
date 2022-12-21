@@ -319,7 +319,8 @@ export async function hideProperties(){
 export function scaleToFitScreenWidth(element, sideGap = 20) {
   // Get the width of the screen and the element
   const screenWidth = window.innerWidth;
-  const elementWidth = element.offsetWidth;
+  const elementRect = element.getBoundingClientRect();
+  const elementWidth = elementRect.width;
 
   // If the element's width is larger than the screen width, scale it down
   if (elementWidth > screenWidth) {
