@@ -325,11 +325,14 @@ export function scaleToFitScreenWidth(element, sideGap = 20) {
 
   // If the element's width is larger than the screen width, scale it down
   if (elementWidth > screenWidth) {
+    
     // Calculate the scaling factor needed to fit the element within the screen width,
     // leaving a side gap on the left and right sides of the element
     const scaleFactor = (screenWidth - sideGap * 2) / elementWidth;
 
     // Set the transform style of the element to scale it down
     element.style.transform = `scale(${scaleFactor})`;
+  }else{
+    element.style.display = 'flex'
   }
 }
