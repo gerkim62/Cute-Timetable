@@ -317,6 +317,7 @@ export async function hideProperties(){
 }
 
 export function scaleToFitScreenWidth(element, sideGap = 20) {
+  element.style.display = 'block'
   // Get the width of the screen and the element
   const screenWidth = window.innerWidth;
   const elementRect = element.getBoundingClientRect();
