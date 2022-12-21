@@ -333,8 +333,28 @@ export function scaleToFitScreenWidth(element, sideGap = 10) {
 
     // Set the transform style of the element to scale it down
     element.style.transform = `scale(${scaleFactor})`;
-    element.querySelector('table').style.transform = `scale(${scaleFactor*.5})`;
+    scaleElementToFitParentWidth(finalTimetable)
   }else{
     element.style.display = 'flex'
+  }
+}
+
+function scaleElementToFitParentWidth(element) {
+  // Get the parent element
+  let parent = element.parentElement;
+  
+  // Get the width of the parent element
+  let parentWidth = parent.offsetWidth;
+  
+  // Get the width of the element
+  let elementWidth = element.offsetWidth;
+  
+  // If the element is wider than the parent, scale it down
+  if (elementWidth > parentWidth) {
+    // Calculate the scale factor
+    let scale = parentWidth / elementWidth;
+    
+    // Set the transform property to scale the element down
+    element.style.transform = `scale(${scale})`;
   }
 }
