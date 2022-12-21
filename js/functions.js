@@ -323,6 +323,7 @@ export function scaleToFitScreenWidth(element, sideGap = 10) {
   const screenWidth = window.innerWidth;
   const elementRect = element.getBoundingClientRect();
   const elementWidth = elementRect.width;
+  console.log({screenWidth, elementWidth})
 
   // If the element's width is larger than the screen width, scale it down
   if ((elementWidth - screenWidth)>sideGap *-1) {
