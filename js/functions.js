@@ -318,6 +318,7 @@ export async function hideProperties(){
 
 export function scaleToFitScreenWidth(element, sideGap = 20) {
   element.style.display = 'block'
+  
   // Get the width of the screen and the element
   const screenWidth = window.innerWidth;
   const elementRect = element.getBoundingClientRect();
@@ -332,6 +333,7 @@ export function scaleToFitScreenWidth(element, sideGap = 20) {
 
     // Set the transform style of the element to scale it down
     element.style.transform = `scale(${scaleFactor})`;
+    element.querySelector('table').style.transform = `scale(${scaleFactor})`;
   }else{
     element.style.display = 'flex'
   }
