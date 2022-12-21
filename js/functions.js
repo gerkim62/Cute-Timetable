@@ -324,7 +324,7 @@ export function scaleToFitScreenWidth(element, sideGap = 20) {
   const elementWidth = elementRect.width;
 
   // If the element's width is larger than the screen width, scale it down
-  if (elementWidth > screenWidth) {
+  if ((elementWidth - screenWidth)>sideGap *-1) {
     
     // Calculate the scaling factor needed to fit the element within the screen width,
     // leaving a side gap on the left and right sides of the element
