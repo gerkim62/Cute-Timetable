@@ -5,7 +5,7 @@
 
 
 #timetable-container{
-  overflow-x: scroll;
+  overflow-x: visible;
   padding: 5px;
   margin: 5px;
   margin-left: auto;
@@ -20,7 +20,7 @@
   position: relative;
   z-index: 201;
   
-  box-shadow: inset rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, inset rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+ /* box-shadow: inset rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, inset rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;*/
   max-width: 98%;
 
 }
@@ -49,6 +49,9 @@ table th{
   padding: -1px;
   color: rgba(0, 0, 0, .75);
   color:var(--color-primary);
+  color: #1B1212;
+  color:#6568d340;
+ color: rgba(101, 104, 211, .85);
 }
 
 table th:first-child{
@@ -102,12 +105,14 @@ table td.unscheduled {
   color: #6568d3;
   background: #f1fdf3;
   position: relative;
-  left: 30px;
+  
   z-index: 201;
   opacity:1;
   animation-fill-mode: forwards;
-  
-  position: absolute;
+  position: absolute !important;
+  top: 82.5%; !important;
+  left: calc(50% + 30px) !important;
+  transform: translateX(-50%);
 }
 
 .card ul li {
@@ -179,7 +184,6 @@ table td.unscheduled {
 
 .card:hover {
   filter: blur(0px);
-  transform: scale(1);
   opacity: 1;
 }
 

@@ -348,8 +348,7 @@ function getWidth(element) {
   let computedStyle = window.getComputedStyle(element);
 
   // Get the style property for width
-  let width = element.style.width;
-
+  let width = element.style.width
   // Get the offset width of the element
   let offsetWidth = element.offsetWidth;
 
@@ -359,12 +358,12 @@ function getWidth(element) {
   // Calculate the width using all possible methods
   let widthCalculated = Math.min(
     parseInt(computedStyle.width),
-    parseInt(width),
     offsetWidth,
     clientWidth
   );
 
   // Return the width
+  console.log({widthCalculated})
   return widthCalculated;
 }
 
@@ -374,7 +373,7 @@ function getScaleToFit(parent) {
   if (isOverflowing(parent)) {
     // Calculate the scale factor to fit the parent within its container
     const scaleX = getWidth(parent) / parent.scrollWidth;
-    const scaleY = 0//parent.clientHeight / parent.scrollHeight;
+    const scaleY = Infinity//parent.clientHeight / parent.scrollHeight;
     const scale = Math.min(scaleX, scaleY);
 
     // Return the scale factor
@@ -388,7 +387,7 @@ function getScaleToFit(parent) {
 export function preventElementOverflow(element, parent){
   
   const scale = getScaleToFit(parent)
-  
-  element.style.transform = `scale(${scale})`
+  console.log(scale, element)
+  element.style.transform = `scale(${scale/1.075})`
   
 }

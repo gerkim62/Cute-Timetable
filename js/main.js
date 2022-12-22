@@ -56,7 +56,6 @@ fileInput.addEventListener('change', event => {
 
     timetableContainer_div.append(finalTimetable)
     preventElementOverflow(finalTimetable, timetableContainer_div)
-    finalTimetable.style.transform = 'scale(.5)'
     hideCsvUploadUI()
   });
 });
