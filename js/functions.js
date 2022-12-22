@@ -337,7 +337,7 @@ const retrieveTimetables = () => JSON.parse(localStorage.getItem('timetables')) 
 
 export async function convertElementToImage(element, options) {
   try {
-    console.log('starting to call domtoimage')
+    alert('starting to call domtoimage')
     const dataUrl = await domtoimage.toPng(element, options);
     return dataUrl;
   } catch (error) {
