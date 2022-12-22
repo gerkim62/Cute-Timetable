@@ -28,8 +28,8 @@
 
 table,
 table th{
-  border: 1px solid !important;
-  border-color: #1B121264 !important;
+  border: 1px solid;
+  border-color: #1B121264;
 }
 
 table, td, tr, th{
@@ -74,11 +74,11 @@ table td:hover{
 }
 
 table td.following-unscheduled {
-  border-left: 1px solid rgba(0, 0, 0, .2) !important;
+  border-left: 1px solid rgba(0, 0, 0, .2);
 }
 
 table td.below-unscheduled {
-  border-top: 1px solid rgba(0, 0, 0, .2) !important;
+  border-top: 1px solid rgba(0, 0, 0, .2);
 }
 
 table td.unscheduled {

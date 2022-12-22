@@ -82,7 +82,7 @@ propertiesCardOverlay_div.addEventListener('click', hideProperties)
 save_button.addEventListener('click', async () => {
   console.log('click')
   const timetable = timetableContainer_div
-  const scale = 1
+  const scale = 5
   const imageStyle = {
     transform: 'scale(' + scale + ')',
     transformOrigin: 'top left',
