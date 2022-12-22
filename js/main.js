@@ -85,7 +85,7 @@ save_button.addEventListener('click', async () => {
     transform:'scale(5)'
   }
     }
-  const timetableDataUrl = await convertElementToImage(finalTimetable, options)
+  const timetableDataUrl = await convertElementToImage(timetableContainer_div.querySelector.querySelector('table'), options)
   
   console.log(timetableDataUrl)
   downloadImage(timetableDataUrl,'timetable.png')
