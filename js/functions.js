@@ -316,46 +316,79 @@ export async function hideProperties(){
   showingPropertiesFor=null
 }
 
-export function scaleToFitScreenWidth(element, sideGap = 10) {
-  element.style.display = 'block'
-  
-  // Get the width of the screen and the element
-  const screenWidth = window.innerWidth;
-  const elementRect = element.getBoundingClientRect();
-  const elementWidth = elementRect.width;
-  console.log({screenWidth, elementWidth})
 
-  // If the element's width is larger than the screen width, scale it down
-  if ((elementWidth - screenWidth)>sideGap *-1) {
-    
-    // Calculate the scaling factor needed to fit the element within the screen width,
-    // leaving a side gap on the left and right sides of the element
-    const scaleFactor = (screenWidth - sideGap * 2) / elementWidth;
 
-    // Set the transform style of the element to scale it down
-    element.style.transform = `scale(${scaleFactor})`;
-    scaleElementToFitParentWidth(timetableContainer_div)
-  }/*else{
-    element.style.display = 'flex'/
-  }*/
+function storeTimetable(timetable) {
+  let storedTimetables = JSON.parse(localStorage.getItem('timetables'));
+  if (!storedTimetables) {
+    storedTimetables = [];
+  }
+  storedTimetables.push(timetable);
+  localStorage.setItem('timetables', JSON.stringify(storedTimetables));
 }
 
-function scaleElementToFitParentWidth(element) {
-  // Get the parent element
-  let parent = element.parentElement;
-  
-  // Get the width of the parent element
-  let parentWidth = parent.offsetWidth;
-  
-  // Get the width of the element
-  let elementWidth = element.offsetWidth;
-  
-  // If the element is wider than the parent, scale it down
-  if (elementWidth > parentWidth) {
-    // Calculate the scale factor
-    let scale = parentWidth / elementWidth;
-    
-    // Set the transform property to scale the element down
-    element.style.transform = `scale(${scale})`;
+const retrieveTimetables = () => JSON.parse(localStorage.getItem('timetables')) || [];
+
+
+async function convertElementToImage(element, options) {
+  try {
+    const dataUrl = await domtoimage.toPng(element, options);
+    return dataUrl;
+  } catch (error) {
+    console.error(error);
   }
+}
+
+function isOverflowing(element) {
+  return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
+}
+
+function getWidth(element) {
+  // Get the computed style of the element
+  let computedStyle = window.getComputedStyle(element);
+
+  // Get the style property for width
+  let width = element.style.width;
+
+  // Get the offset width of the element
+  let offsetWidth = element.offsetWidth;
+
+  // Get the client width of the element
+  let clientWidth = element.clientWidth;
+
+  // Calculate the width using all possible methods
+  let widthCalculated = Math.min(
+    parseInt(computedStyle.width),
+    parseInt(width),
+    offsetWidth,
+    clientWidth
+  );
+
+  // Return the width
+  return widthCalculated;
+}
+
+
+function getScaleToFit(parent) {
+  // Check if the element is overflowing its container
+  if (isOverflowing(parent)) {
+    // Calculate the scale factor to fit the parent within its container
+    const scaleX = getWidth(parent) / parent.scrollWidth;
+    const scaleY = 0//parent.clientHeight / parent.scrollHeight;
+    const scale = Math.min(scaleX, scaleY);
+
+    // Return the scale factor
+    return scale;
+  }
+
+  // Return 1 if the parent is not overflowing its container
+  return 1;
+}
+
+export function preventElementOverflow(element, parent){
+  
+  const scale = getScaleToFit(parent)
+  
+  element.style.transform = `scale(${scale})`
+  
 }

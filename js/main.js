@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties,hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, scaleToFitScreenWidth } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties,hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow} from './functions.js'
 
 
 
@@ -55,7 +55,7 @@ fileInput.addEventListener('change', event => {
     console.log(finalTimetable)
 
     timetableContainer_div.append(finalTimetable)
-   scaleToFitScreenWidth(timetableContainer_div)
+    preventElementOverflow(finalTimetable, timetableContainer_div)
     hideCsvUploadUI()
   });
 });
@@ -74,3 +74,4 @@ newTimetable_li.addEventListener('click',showCsvUploadUI)
 
 closePropertiesCard_button.addEventListener('click', hideProperties)
 propertiesCardOverlay_div.addEventListener('click', hideProperties)
+
