@@ -107,6 +107,8 @@ table td.unscheduled {
   z-index: 201;
   opacity:1;
   animation-fill-mode: forwards;
+  
+  position: absolute;
 }
 
 .card ul li {
