@@ -81,7 +81,7 @@ propertiesCardOverlay_div.addEventListener('click', hideProperties)
 
 save_button.addEventListener('click', async () => {
   console.log('click')
-  
+  const scale = 1
 const imageStyle = {
       transform: 'scale(' + scale + ')',
       transformOrigin: 'top left',
