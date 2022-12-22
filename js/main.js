@@ -102,7 +102,7 @@ save_button.addEventListener('click', async () => {
 
   const timetableDataUrl = await convertElementToImage(timetable, imageOptions)
 
-  console.log(timetableDataUrl)
+  //console.log(timetableDataUrl)
   downloadImage(timetableDataUrl, 'timetable.png')
   hideLoader()
   showToast('Convertion complete')
