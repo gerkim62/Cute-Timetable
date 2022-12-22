@@ -28,7 +28,7 @@
 table,
 table th{
   border: 1px solid var(--color-primary);
-  border-color: #1B1212;
+  border-color: #1B12120F;
 }
 
 table, td, tr, th{
