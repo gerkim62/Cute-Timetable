@@ -43,8 +43,7 @@ table tr th p{
 
 table {
   border-collapse: collapse;
-  padding: 2px;
-  background: red;
+  background: #f1fdf3;
 }
 
 table th{
