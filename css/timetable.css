@@ -49,6 +49,7 @@ table th{
   padding: -1px;
   color: rgba(0, 0, 0, .75);
   color:var(--color-primary);
+  color: black;
 }
 
 table th:first-child{
