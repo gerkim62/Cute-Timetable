@@ -52,7 +52,7 @@ fileInput.addEventListener('change', event => {
     ////console.log(blankTimetable)
     const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
 
-    ////console.log(finalTimetable)
+    console.log(finalTimetable)
 
     timetableContainer_div.append(finalTimetable)
    scaleToFitScreenWidth(timetableContainer_div)
