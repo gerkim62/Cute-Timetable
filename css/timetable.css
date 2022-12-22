@@ -42,7 +42,7 @@ table tr th p{
 
 table {
   border-collapse: collapse;
-  
+  transform: scale(.5);
 }
 
 table th{
