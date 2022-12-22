@@ -437,3 +437,5 @@ function sanitizeName(name) {
   // Add the .png extension if it is not already included
   return sanitizedName.endsWith('.png')?sanitizedName:`${sanitizedName}.png`;
 }
+
+
