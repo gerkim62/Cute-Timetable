@@ -259,6 +259,8 @@ export async function showProperties(courseCode, courses){
  ;(!alreadyShowing||showingPropertiesFor===null)? await fadeIn(propertiesCard_div):""
   showingPropertiesFor=courseCode
   propertiesCard_div.style.opacity=1
+  element.classList.remove('fade-in')
+  element.classList.remove('fade-out')
 }
 
 export function saveTimetable(){
@@ -290,7 +292,7 @@ if(!showingPropertiesFor) return resolve()
     element.classList.add('fade-out')
     element.addEventListener('animationend', () => {
      //console.log("out fade after event")
-      element.classList.remove('fade-out')
+      //element.classList.remove('fade-out')
       
       resolve()
     })
@@ -302,7 +304,7 @@ export async function fadeIn(element){
   return new Promise((resolve, reject) => {
     element.classList.add('fade-in')
     element.addEventListener('animationend', () => {
-      element.classList.remove('fade-in')
+      //element.classList.remove('fade-in')
      //console.log('end')
       resolve()
     })
