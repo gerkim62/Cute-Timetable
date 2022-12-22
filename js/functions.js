@@ -242,7 +242,7 @@ export async function showProperties(courseCode, courses){
   const alreadyShowing = courseCode===showingPropertiesFor
   propertiesCard_div.classList.remove('hidden')
   propertiesCardOverlay_div.classList.remove('hidden')
-  console.log(courseCode, courses)
+ //console.log(courseCode, courses)
 ;(!alreadyShowing || !showingPropertiesFor===null)? await fadeOut(propertiesCard_div):""
   courses.forEach(course=>{
     if(course.code === courseCode){
@@ -283,13 +283,13 @@ export function showToast(message) {
 }
 
 export async function fadeOut(element){
-  console.log("out fade")
+ //console.log("out fade")
   
   return new Promise((resolve, reject) => {
 if(!showingPropertiesFor) return resolve()
     element.classList.add('fade-out')
     element.addEventListener('animationend', () => {
-      console.log("out fade after event")
+     //console.log("out fade after event")
       element.classList.remove('fade-out')
       
       resolve()
@@ -298,12 +298,12 @@ if(!showingPropertiesFor) return resolve()
 }
 
 export async function fadeIn(element){
-  console.log("fade in")
+ //console.log("fade in")
   return new Promise((resolve, reject) => {
     element.classList.add('fade-in')
     element.addEventListener('animationend', () => {
       element.classList.remove('fade-in')
-      console.log('end')
+     //console.log('end')
       resolve()
     })
   })
@@ -363,7 +363,7 @@ function getWidth(element) {
   );
 
   // Return the width
-  console.log({widthCalculated})
+ //console.log({widthCalculated})
   return widthCalculated;
 }
 
@@ -387,7 +387,7 @@ function getScaleToFit(parent) {
 export function preventElementOverflow(element, parent){
   
   const scale = getScaleToFit(parent)
-  console.log(scale, element)
+ //console.log(scale, element)
   element.style.transform = `scale(${scale/1.075})`
   
 }
