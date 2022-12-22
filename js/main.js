@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties,hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show} from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage } from './functions.js'
 
 
 
@@ -6,7 +6,7 @@ let courses;
 
 customBtn.addEventListener("click", function() {
   realFileBtn.click();
-  
+
 });
 
 /*realFileBtn.addEventListener("change", async function() {
@@ -63,19 +63,31 @@ fileInput.addEventListener('change', event => {
 
 /*opening More properties of course*/
 
-timetableContainer_div.addEventListener('click',e=>{
-   
+timetableContainer_div.addEventListener('click', e => {
+
   const target = e.target
-  target.classList.contains('scheduled')?showProperties(target.innerText.trim(), courses):target.classList.contains('unscheduled')?showToast('No class at that time.'):'';
-  
-  
-  
+  target.classList.contains('scheduled') ? showProperties(target.innerText.trim(), courses) : target.classList.contains('unscheduled') ? showToast('No class at that time.') : '';
+
+
+
 })
 
 /*ui elements*/
 
-newTimetable_li.addEventListener('click',showCsvUploadUI)
+newTimetable_li.addEventListener('click', showCsvUploadUI)
 
 closePropertiesCard_button.addEventListener('click', hideProperties)
 propertiesCardOverlay_div.addEventListener('click', hideProperties)
+
+save_button.addEventListener('click', async () => {
+  console.log('click')
+  const options = { style: { 
+    transform:'scale(5)'
+  }
+    }
+  const timetableDataUrl = await convertElementToImage(finalTimetable, options)
+  
+  console.log(timetableDataUrl)
+  downloadImage(timetableDataUrl,'timetable.png')
+})
 

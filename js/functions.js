@@ -335,8 +335,9 @@ function storeTimetable(timetable) {
 const retrieveTimetables = () => JSON.parse(localStorage.getItem('timetables')) || [];
 
 
-async function convertElementToImage(element, options) {
+export async function convertElementToImage(element, options) {
   try {
+    console.log('starting to call domtoimage')
     const dataUrl = await domtoimage.toPng(element, options);
     return dataUrl;
   } catch (error) {
@@ -398,9 +399,28 @@ export function preventElementOverflow(element, parent){
 }
 
 export function show(element){
-  element.classList.remove('hiddem')
+  element.classList.remove('hidden')
 }
 
 export function hide(element){
   element.classList.add('hidden')
+}
+
+export function downloadImage(dataUrl, name) {
+  // Sanitize the file name
+  const fileName = sanitizeName(name);
+
+  // Create a link element
+  const link = document.createElement('a');
+  link.href = dataUrl;
+  link.download = fileName;
+
+  // Append the link to the DOM
+  document.body.appendChild(link);
+
+  // Click the link to download the image
+  link.click();
+
+  // Remove the link from the DOM
+  document.body.removeChild(link);
 }
