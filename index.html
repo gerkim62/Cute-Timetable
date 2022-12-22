@@ -80,6 +80,8 @@
       </div>
     </div>
   </div>
+    <div id="card-overlay" class="card-overlay hidden"> </div>
+
 
   <nav class="nav">
     <!--close button-->
@@ -123,7 +125,7 @@
     <p class="upload-message"> Upload CSV file to generate your first Cute timetable! </p>
     <div class="upload">
       <input type="file" id="real-file" hidden="hidden" />
-      <button type="button" id="custom-button"> UPLOAD CSV </button>
+      <button type="button" class="custom-button" id="custom-button"> UPLOAD CSV </button>
       <span id="custom-text"> Click to Select </span>
 
     </div>
@@ -132,8 +134,11 @@
 
   </div>
 
-    <div id="card-overlay" class="card-overlay hidden"> </div>
-
+  <div id="cta" class="cta-buttons hidden">
+    <button id="save" class="custom-button"><i class="fas fa-save"></i>Save</button>
+    
+    <button id="discard" class="custom-button"><i class="fas fa-trash"></i>Discard</button>
+  </div>
 
 </body>
 

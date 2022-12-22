@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties,hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow} from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties,hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show} from './functions.js'
 
 
 
@@ -57,6 +57,7 @@ fileInput.addEventListener('change', event => {
     timetableContainer_div.append(finalTimetable)
     preventElementOverflow(finalTimetable, timetableContainer_div)
     hideCsvUploadUI()
+    show(cta_div)
   });
 });
 

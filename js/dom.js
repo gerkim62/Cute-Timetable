@@ -21,3 +21,8 @@ const fileUploadUI_div = document.getElementById('upload-ui')
 /**nav**/
 const newTimetable_li = document.getElementById('new-timetable')
 
+
+/*cta*/
+const cta_div = document.getElementById('cta')
+const save_button = document.getElementById('save')
+const discard_button = document.getElementById('discard')

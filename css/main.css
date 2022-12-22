@@ -106,7 +106,7 @@ button:active{
  
 }
 
-.upload-btn,#custom-button {
+.upload-btn,.custom-button {
   padding: 10px;
   color: white;
  background: var(--color-primary);
@@ -129,7 +129,7 @@ button:active{
   font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-#custom-button {
+.custom-button {
   background-color: var(--color-secondary);
   color: var(--color-primary);
   border: 1px solid;
@@ -168,3 +168,44 @@ button:active{
     transform: scale(1)
   }
 }
+
+.cta-buttons{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cta-buttons button{
+  width: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  font-weight: normal;
+  
+}
+
+.cta-buttons button i{
+  font-size: .7rem;
+  margin-right: 5px;
+}
+
+.cta-buttons button:first-child i{
+  font-size: .8rem;
+  
+}
+
+.cta-buttons button:first-child{
+  background: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/*
+.cta-buttons button:last-child:hover {
+ background: var(--color-primary);
+ color: var(--color-secondary);
+}
+.cta-buttons button:first-child:hover {
+  color: var(--color-primary);
+  background: var(--color-secondary);
+}*/

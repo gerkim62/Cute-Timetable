@@ -396,3 +396,11 @@ export function preventElementOverflow(element, parent){
   element.style.transform = `scale(${scale/1.075})`
   
 }
+
+export function show(element){
+  element.classList.remove('hiddem')
+}
+
+export function hide(element){
+  element.classList.add('hidden')
+}
