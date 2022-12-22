@@ -81,24 +81,24 @@ propertiesCardOverlay_div.addEventListener('click', hideProperties)
 
 save_button.addEventListener('click', async () => {
   console.log('click')
+  const timetable = timetableContainer_div.querySelector('table')
   const scale = 1
-const imageStyle = {
-      transform: 'scale(' + scale + ')',
-      transformOrigin: 'top left',
-      width: node.offsetWidth + "px",
-      height: node.offsetHeight + "px"
-    }
-    
-    const imageOotions = {
-      width: node.offsetWidth * scale,
-      height: node.offsetHeight * scale,
-      quality: 1,
-      style: imageStyle
-    }
-    
-  const timetableDataUrl = await convertElementToImage(timetableContainer_div.querySelector('table'), imageOptions)
-  
-  console.log(timetableDataUrl)
-  downloadImage(timetableDataUrl,'timetable.png')
-})
+  const imageStyle = {
+    transform: 'scale(' + scale + ')',
+    transformOrigin: 'top left',
+    width: timetable.offsetWidth + "px",
+    height: timetable.offsetHeight + "px"
+  }
 
+  const imageOotions = {
+    width: timetable.offsetWidth * scale,
+    height: timetable.offsetHeight * scale,
+    quality: 1,
+    style: imageStyle
+  }
+
+  const timetableDataUrl = await convertElementToImage(timetable, imageOptions)
+
+  console.log(timetableDataUrl)
+  downloadImage(timetableDataUrl, 'timetable.png')
+})
