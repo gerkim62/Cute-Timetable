@@ -334,7 +334,7 @@ export function scaleToFitScreenWidth(element, sideGap = 10) {
 
     // Set the transform style of the element to scale it down
     element.style.transform = `scale(${scaleFactor})`;
-    scaleElementToFitParentWidth(finalTimetable)
+    //scaleElementToFitParentWidth(finalTimetable)
   }/*else{
     element.style.display = 'flex'
   }*/
