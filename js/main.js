@@ -105,7 +105,7 @@ save_button.addEventListener('click', async () => {
   console.log(timetableDataUrl)
   downloadImage(timetableDataUrl, 'timetable.png')
   hideLoader()
-  showToast('Download complete')
+  showToast('Convertion complete')
 })
 
 discard_button.addEventListener('click',()=>{
