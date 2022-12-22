@@ -336,7 +336,7 @@ export function scaleToFitScreenWidth(element, sideGap = 10) {
     element.style.transform = `scale(${scaleFactor})`;
     scaleElementToFitParentWidth(timetableContainer_div)
   }/*else{
-    element.style.display = 'flex'
+    element.style.display = 'flex'/
   }*/
 }
 
