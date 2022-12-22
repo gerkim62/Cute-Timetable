@@ -96,7 +96,6 @@ table td.unscheduled {
   border-top-right-radius: 5px;
   
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  transition: 0s;
 
   display: flex;
   flex-direction: column;
@@ -110,7 +109,7 @@ table td.unscheduled {
   opacity:1;
   animation-fill-mode: forwards;
   position: absolute !important;
-  top: 82.5%; !important;
+  top: 82.5%;
   left: calc(50% + 30px) !important;
   transform: translateX(-50%);
 }
