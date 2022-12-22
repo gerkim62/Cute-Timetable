@@ -90,7 +90,7 @@ save_button.addEventListener('click', async () => {
     height: timetable.offsetHeight + "px"
   }
 
-  const imageOotions = {
+  const imageOptions = {
     width: timetable.offsetWidth * scale,
     height: timetable.offsetHeight * scale,
     quality: 1,
