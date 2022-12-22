@@ -394,7 +394,7 @@ export function preventElementOverflow(element, parent){
   
   const scale = getScaleToFit(parent)
  //console.log(scale, element)
-  element.style.transform = `scale(${scale/1.075})`
+  element.style.transform = `scale(${scale/1.1})`
   
 }
 
