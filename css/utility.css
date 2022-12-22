@@ -4,13 +4,13 @@
 
 .fade-in{
   animation-fill-mode: forwards;
-  animation: fadeIn .35s ease;
+  animation: fadeIn .1s ease;
   opacity: 0 !important;
 }
 
 .fade-out {
   animation-fill-mode: forwards;
-  animation: fadeOut .2s ease;
+  animation: fadeOut .1s ease;
 }
 
 @keyframes fadeOut{
