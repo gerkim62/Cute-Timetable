@@ -424,3 +424,16 @@ export function downloadImage(dataUrl, name) {
   // Remove the link from the DOM
   document.body.removeChild(link);
 }
+
+function sanitizeName(name) {
+  // Remove any characters that are not letters, numbers, periods, underscores, or hyphens
+  let sanitizedName = name.replace(/[^a-zA-Z0-9\.\_\-]/g, '');
+
+  // Replace all dots except the last one with spaces
+  sanitizedName = sanitizedName.replace(/\./g, (match, offset, string) => {
+    return offset === string.lastIndexOf('.') ? match : ' ';
+  });
+
+  // Add the .png extension if it is not already included
+  return sanitizedName.endsWith('.png')?sanitizedName:`${sanitizedName}.png`;
+}
