@@ -305,7 +305,7 @@ export async function fadeIn(element){
   return new Promise((resolve, reject) => {
     element.classList.add('fade-in')
     element.addEventListener('animationend', () => {
-      //element.classList.remove('fade-in')
+      element.classList.remove('fade-in')
      //console.log('end')
       resolve()
     })
