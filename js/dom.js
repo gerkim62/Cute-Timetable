@@ -26,3 +26,6 @@ const newTimetable_li = document.getElementById('new-timetable')
 const cta_div = document.getElementById('cta')
 const save_button = document.getElementById('save')
 const discard_button = document.getElementById('discard')
+
+//loader
+const loader_div = document.getElementById('loader')

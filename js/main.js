@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader } from './functions.js'
 
 
 
@@ -77,10 +77,12 @@ timetableContainer_div.addEventListener('click', e => {
 newTimetable_li.addEventListener('click', showCsvUploadUI)
 
 closePropertiesCard_button.addEventListener('click', hideProperties)
-propertiesCardOverlay_div.addEventListener('click', hideProperties)
+propertiesCardOverlay_div.addEventListener('click', hideProperties, showLoader, hideLoader)
 
 save_button.addEventListener('click', async () => {
   console.log('click')
+  showLoader()
+  showToast('Download started...')
   const timetable = timetableContainer_div
   const scale = 5
   const imageStyle = {
@@ -101,4 +103,11 @@ save_button.addEventListener('click', async () => {
 
   console.log(timetableDataUrl)
   downloadImage(timetableDataUrl, 'timetable.png')
+  hideLoader()
+  showToast('Download complete')
+})
+
+discard_button.addEventListener('click',()=>{
+  showCsvUploadUI()
+  timetableContainer_div.querySelector('table').remove()
 })
