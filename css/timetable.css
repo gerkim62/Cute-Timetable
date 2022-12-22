@@ -19,6 +19,10 @@
   flex-direction: column;
   position: relative;
   z-index: 201;
+  
+  box-shadow:inset 1px 0px 1px 0px #000;
+ /* clip-path: inset(0px -15px 0px -15px);*/
+
 }
 
 table,
