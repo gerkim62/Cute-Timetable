@@ -82,7 +82,8 @@ propertiesCardOverlay_div.addEventListener('click', hideProperties, showLoader, 
 save_button.addEventListener('click', async () => {
   console.log('click')
   showLoader()
-  showToast('Download started...')
+  hideProperties()
+  showToast('Convertion started...')
   const timetable = timetableContainer_div
   const scale = 5
   const imageStyle = {
