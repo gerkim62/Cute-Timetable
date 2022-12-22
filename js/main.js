@@ -109,5 +109,6 @@ save_button.addEventListener('click', async () => {
 
 discard_button.addEventListener('click',()=>{
   showCsvUploadUI()
+  hide(cta_div)
   timetableContainer_div.querySelector('table').remove()
 })
