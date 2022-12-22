@@ -238,6 +238,7 @@ export function readCSV(file) {
 
 let showingPropertiesFor =null
 export async function showProperties(courseCode, courses){
+ propertiesCard_div.classList.add('hidden')
   if(!showingPropertiesFor)propertiesCard_div.style.opacity=0.2
   const alreadyShowing = courseCode===showingPropertiesFor
   propertiesCard_div.classList.remove('hidden')
@@ -275,6 +276,7 @@ export function hideCsvUploadUI(){
 }
 
 export function showToast(message) {
+  propertiesCard_div.classList.add('hidden')
   const toastDurationInMillisecond = 3000
   const toast = document.createElement('div');
   toast.innerText = message
