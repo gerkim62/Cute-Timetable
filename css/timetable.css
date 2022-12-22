@@ -28,6 +28,7 @@
 table,
 table th{
   border: 1px solid var(--color-primary);
+  border-color: black;
 }
 
 table, td, tr, th{
@@ -49,7 +50,6 @@ table th{
   padding: -1px;
   color: rgba(0, 0, 0, .75);
   color:var(--color-primary);
-  color: black;
 }
 
 table th:first-child{
