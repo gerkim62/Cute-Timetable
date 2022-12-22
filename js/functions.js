@@ -292,7 +292,7 @@ if(!showingPropertiesFor) return resolve()
     element.classList.add('fade-out')
     element.addEventListener('animationend', () => {
      //console.log("out fade after event")
-      //element.classList.remove('fade-out')
+      element.classList.remove('fade-out')
       
       resolve()
     })
