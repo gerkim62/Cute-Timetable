@@ -284,7 +284,7 @@ export function showToast(message) {
 }
 
 export async function fadeOut(element){
-  element.classList.remove('fade-in')
+ // element.classList.remove('fade-in')
  //console.log("out fade")
   
   return new Promise((resolve, reject) => {
@@ -300,7 +300,7 @@ if(!showingPropertiesFor) return resolve()
 }
 
 export async function fadeIn(element){
-  element.classList.remove('fade-out')
+  //element.classList.remove('fade-out')
  //console.log("fade in")
   return new Promise((resolve, reject) => {
     element.classList.add('fade-in')
