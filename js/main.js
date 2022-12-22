@@ -63,8 +63,11 @@ fileInput.addEventListener('change', event => {
 /*opening More properties of course*/
 
 timetableContainer_div.addEventListener('click',e=>{
+  propertiesCard_div.classList.add('hidden')
   const target = e.target
   target.classList.contains('scheduled')?showProperties(target.innerText.trim(), courses):target.classList.contains('unscheduled')?showToast('No class at that time.'):'';
+  
+  
   
 })
 
