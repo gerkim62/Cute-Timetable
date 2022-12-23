@@ -7,8 +7,6 @@ const assetsToCache = [
   "/",
   "/css/main.css",
   "/js/main.js",
-  "/images/image1.jpg",
-  "/images/image2.jpg"
 ];
 
 self.addEventListener("install", event => {
@@ -45,7 +43,7 @@ self.addEventListener("fetch", event => {
 
         return response;
       }).catch(error => {
-        return caches.match("/offline.html");
+        //return caches.match("/offline.html");
       });
     })
   );
