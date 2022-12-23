@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt } from './functions.js'
 
 
 
@@ -124,3 +124,9 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+//deferred events for sw
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+  showCustomInstallPrompt(event);
+});

@@ -29,3 +29,7 @@ const discard_button = document.getElementById('discard')
 
 //loader
 const loader_div = document.getElementById('loader')
+
+//pwa
+const customInstallUI = document.getElementById('custom-install-ui');
+const customInstallButton = document.getElementById('custom-install-button');

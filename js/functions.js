@@ -445,3 +445,18 @@ export function showLoader(){
 export function hideLoader(){
   hide(loader_div)
 }
+
+export function showCustomInstallPrompt(event) {
+  customInstallUI.classList.remove('hidden');
+  customInstallButton.addEventListener('click', () => {
+    event.prompt();
+    event.userChoice.then((choice) => {
+      customInstallUI.classList.add('hidden');
+      if (choice.outcome === 'accepted') {
+        console.log('The app was installed');
+      } else {
+        console.log('The app was not installed');
+      }
+    });
+  });
+}
