@@ -32,6 +32,6 @@ const loader_div = document.getElementById('loader')
 
 //pwa
 const customInstallUI = document.getElementById('custom-install-ui');
-const customInstallButton = document.getElementById('cinstall');
+const customInstallButton = document.getElementById('install');
 const notNowButton = document.getElementById('not-now')
 console.log(notNowButton)
