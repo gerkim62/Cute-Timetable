@@ -226,7 +226,8 @@ button:active{
   padding: 20px;
   margin: 10px;
   position: absolute;
-  bottom: 50px;
+  top: 50%;
+  transform: translateY(-50%);
   color: #6568d3;
   font-weight: thin;
   letter-spacing: .5px;
