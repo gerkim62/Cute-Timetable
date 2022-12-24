@@ -450,7 +450,7 @@ export function showCustomInstallPrompt(event) {
   customInstallUI.classList.remove('hidden');
   notNowButton.addEventListener('click',()=>{
     customInstallUI.classList.add('hidden');
-    console.log('clicked not noe')
+    console.log('clicked not now')
   })
   customInstallButton.addEventListener('click', () => {
     event.prompt();
