@@ -212,7 +212,7 @@ button:active{
 
 /*custom install popup*/
 .custom-install-ui {
-  background: rgba(255, 255, 255, .1);
+  background: rgba(255, 255, 255, .5);
   position: absolute;
   inset: 0;
   top:0;
