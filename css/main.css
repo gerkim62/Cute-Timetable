@@ -212,7 +212,7 @@ button:active{
 
 /*custom install popup*/
 .custom-install-ui {
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .2);
   position: absolute;
   inset: 0;
   top:0;
@@ -227,7 +227,7 @@ button:active{
   margin: 10px;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-25%);
   color: #6568d3;
   font-weight: thin;
   letter-spacing: .5px;
