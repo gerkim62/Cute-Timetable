@@ -448,6 +448,10 @@ export function hideLoader(){
 
 export function showCustomInstallPrompt(event) {
   customInstallUI.classList.remove('hidden');
+  notNowButton.addEventListener('click',()=>{
+    customInstallUI.classList.add('hidden');
+    console.log('clicked not noe')
+  })
   customInstallButton.addEventListener('click', () => {
     event.prompt();
     event.userChoice.then((choice) => {
