@@ -462,6 +462,7 @@ export function showCustomInstallPrompt(event) {
       } else {
         console.log('The app was not installed');
       }
+      customInstallUI.classList.add('hidden');
     });
   });
 }
