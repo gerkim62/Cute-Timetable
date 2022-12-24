@@ -34,3 +34,4 @@ const loader_div = document.getElementById('loader')
 const customInstallUI = document.getElementById('custom-install-ui');
 const customInstallButton = document.getElementById('cinstall');
 const notNowButton = document.getElementById('not-now')
+console.log(notNowButton)
