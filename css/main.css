@@ -213,9 +213,9 @@ button:active{
 /*custom install popup*/
 .custom-install-ui {
   background: rgba(255, 255, 255, .1);
-  background: red;
   position: relative;
   inset: 0;
+  top:0;
   width: 100vw;
   height: 100vh;
 }
@@ -260,4 +260,5 @@ button:active{
 .custom-install-ui .not-now {
   background: transparent;
   color: #6568d3;
+  font-weight: 100;
 }
