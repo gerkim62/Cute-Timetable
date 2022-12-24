@@ -454,8 +454,9 @@ export function showCustomInstallPrompt(event) {
   })
   customInstallButton.addEventListener('click', () => {
     event.prompt();
+    customInstallUI.classList.add('hidden');
     event.userChoice.then((choice) => {
-      customInstallUI.classList.add('hidden');
+      
       if (choice.outcome === 'accepted') {
         console.log('The app was installed');
       } else {
