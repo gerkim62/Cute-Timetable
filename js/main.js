@@ -126,7 +126,10 @@ if ('serviceWorker' in navigator) {
 }
 
 //deferred events for sw
+let prompted = false
 window.addEventListener('beforeinstallprompt', (event) => {
+  if(prompted) return
   event.preventDefault();
   showCustomInstallPrompt(event);
+  prompted = true
 });
