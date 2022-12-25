@@ -280,7 +280,7 @@ export function showToast(message, duration=3000) {
   toast.className = 'show toast'
   document.body.append(toast)
   setTimeout(() => {
-    toast.classList.add('fad-out')
+    toast.classList.add('fade-out')
     toast.onanimationend=()=>toast.remove()
   }, toastDurationInMillisecond);
 }
