@@ -272,16 +272,16 @@ export function hideCsvUploadUI(){
 }
 
 export function showToast(message, duration=3000) {
+  const animationDuration = 500
   propertiesCard_div.classList.add('hidden')
-  const toastDurationInMillisecond = duration
+  const toastDurationInMillisecond = duration+animationDuration
   console.log({duration})
   const toast = document.createElement('div');
   toast.innerText = message
   toast.className = 'show toast'
   document.body.append(toast)
   setTimeout(() => {
-    toast.classList.add('fade-out-toast')
-    toast.onanimationend=()=>toast.remove()
+    toast.remove()
   }, toastDurationInMillisecond);
 }
 
