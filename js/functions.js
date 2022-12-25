@@ -263,10 +263,6 @@ export async function showProperties(courseCode, courses){
   
 }
 
-export function saveTimetable(){
-  
-}
-
 export function showCsvUploadUI(){
   fileUploadUI_div.classList.remove('hidden')
 }
@@ -323,7 +319,7 @@ export async function hideProperties(){
 
 
 
-function storeTimetable(timetable) {
+export function storeTimetable(timetable) {
   let storedTimetables = JSON.parse(localStorage.getItem('timetables'));
   if (!storedTimetables) {
     storedTimetables = [];
@@ -332,7 +328,7 @@ function storeTimetable(timetable) {
   localStorage.setItem('timetables', JSON.stringify(storedTimetables));
 }
 
-const retrieveTimetables = () => JSON.parse(localStorage.getItem('timetables')) || [];
+export const retrieveTimetables = () => JSON.parse(localStorage.getItem('timetables')) || [];
 
 
 export async function convertElementToImage(element, options) {

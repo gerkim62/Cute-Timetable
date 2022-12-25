@@ -1,6 +1,6 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables } from './functions.js'
 
-
+console.log(retrieveTimetables())
 
 let courses;
 
@@ -52,6 +52,16 @@ fileInput.addEventListener('change', event => {
     ////console.log(blankTimetable)
     const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
 
+    const timetable = {
+      name:'',
+      id:1,
+      courses,
+      allDays,
+      allTimestampsFormarted
+    }
+
+storeTimetable(timetable)
+    
     console.log(finalTimetable)
 
     timetableContainer_div.append(finalTimetable)
