@@ -271,9 +271,9 @@ export function hideCsvUploadUI(){
   fileUploadUI_div.classList.add('hidden')
 }
 
-export function showToast(message) {
+export function showToast(message, duration=3000) {
   propertiesCard_div.classList.add('hidden')
-  const toastDurationInMillisecond = 3000
+  const toastDurationInMillisecond = duration
   const toast = document.createElement('div');
   toast.innerText = message
   toast.className = 'show toast'
