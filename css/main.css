@@ -227,7 +227,7 @@ button:active{
   margin: 10px;
   position: absolute;
   top: 50%;
-  transform: translateY(-25%);
+  transform: translateY(-15%);
   color: #6568d3;
   font-weight: thin;
   letter-spacing: .5px;
