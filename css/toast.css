@@ -19,11 +19,12 @@
 
 .toast.show {
   visibility: visible;
-  animation: fadein 0.5s/*, fadeout 0.5s 5s*/;
+  animation: fadein 0.5s;
   animation-fill-mode: forwards;
 }
 .fade-out-toast{
   animation: fadeout .5s ease;
+  background: red;
 }
 
 @-webkit-keyframes fadein {
