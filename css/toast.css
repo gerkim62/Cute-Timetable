@@ -22,6 +22,9 @@
   animation: fadein 0.5s/*, fadeout 0.5s 5s*/;
   animation-fill-mode: forwards;
 }
+.fade-out{
+  animation: fadeout .5s ease;
+}
 
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;} 

@@ -279,7 +279,10 @@ export function showToast(message, duration=3000) {
   toast.innerText = message
   toast.className = 'show toast'
   document.body.append(toast)
-  setTimeout(() => toast.remove(), toastDurationInMillisecond);
+  setTimeout(() => {
+    toast.classList.add('fad-out')
+    toast.onanimationend=()=>toast.remove()
+  }, toastDurationInMillisecond);
 }
 
 export async function fadeOut(element){
