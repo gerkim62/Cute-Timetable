@@ -19,7 +19,7 @@
 
 .toast.show {
   visibility: visible;
-  animation: fadein 0.5s, fadeout 0.5s 5s;
+  animation: fadein 0.5s/*, fadeout 0.5s 5s*/;
   animation-fill-mode: forwards;
 }
 
