@@ -5,8 +5,23 @@ const CACHE_NAME = "v1";
 const assetsToCache = [
   "/index.html",
   "/",
+  "/pages/offline.html",
+  
   "/css/main.css",
+  "/css/loader.css",
+  "/css/nav.css",
+  "/css/reset.css",
+  "/css/timetable.css",
+  "/css/toast.css",
+  "/css/tooltip.css",
+  "/css/variables.css",
+  "/css/utility.css",
+  
   "/js/main.js",
+  "/js/nav.js",
+  "/js/functions.js",
+  "/js/dom.js",
+  
 ];
 
 self.addEventListener("install", event => {
@@ -43,9 +58,8 @@ self.addEventListener("fetch", event => {
 
         return response;
       }).catch(error => {
-        //return caches.match("/offline.html");
+        return caches.match("/pages/offline.html");
       });
     })
   );
 });
-
