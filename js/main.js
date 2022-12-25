@@ -43,6 +43,7 @@ fileInput.addEventListener('change', event => {
     //console.log(csvString);
 
     courses = getCourses(csvString)
+    if(courses.length===0) return showToast('Oops! That CSV does not seem to contain a valid timetable.')
     //console.log(courses)
     const allDays = getDays(courses)
     ////console.log(allDays)
