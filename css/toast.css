@@ -1,7 +1,8 @@
 
 .toast {
   visibility: hidden;
-  min-width: max-content;
+  width: max-content;
+  max-width:90vw;
   background-color: #6568d3;
   color: #f1fdf3;
   text-align: center;
