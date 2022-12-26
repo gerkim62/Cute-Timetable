@@ -24,7 +24,6 @@
 }
 .fade-out-toast{
   animation: fadeout .5s ease;
-  background: red;
 }
 
 @-webkit-keyframes fadein {

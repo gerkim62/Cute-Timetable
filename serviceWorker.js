@@ -3,7 +3,7 @@ console.log('from sw')
 
 const CACHE_NAME = "v1";
 const assetsToCache = [
-  /*"/index.html",
+  "/index.html",
   "/",
   "/pages/offline.html",
   
@@ -20,7 +20,7 @@ const assetsToCache = [
   "/js/main.js",
   "/js/nav.js",
   "/js/functions.js",
-  "/js/dom.js"*/
+  "/js/dom.js"
   
 ];
 
@@ -58,7 +58,7 @@ self.addEventListener("fetch", event => {
 
         return response;
       }).catch(error => {
-        //return caches.match("/pages/offline.html");
+        return caches.match("/pages/offline.html");
       });
     })
   );
