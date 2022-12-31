@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme } from './functions.js'
 
 console.log(retrieveTimetables())
 
@@ -9,28 +9,8 @@ customBtn.addEventListener("click", function() {
 
 });
 
-/*realFileBtn.addEventListener("change", async function() {
-  if (realFileBtn.value) {
-    customTxt.innerHTML = realFileBtn.value.match(
-      /[\/\\]([\w\d\s\.\-\(\)]+)$/
-    )[1];
 
-    const csvFile = realFileBtn.files[0]
-
-
-
-    const timetable = await new Timetable({ csvFile }).create({ themeColors, preferedCoursesIdentifier })
-    //timetable.scaleToScreenWidth(timetable)
-    //const html = await timetable.create({themeColors, preferedCoursesIdentifier})
-    //console.log(timetable)
-    timetableWrapperDiv.append(timetable)
-
-  } else {
-    customTxt.innerHTML = "No file chosen, yet.";
-  }
-});*/
-
-
+show(propertiesCard_div)
 const unscheduledLabel = 'No Class'
 
 
@@ -44,27 +24,18 @@ fileInput.addEventListener('change', event => {
 
     courses = getCourses(csvString)
     console.log(courses)
-    
+
     //console.log(courses)
-    const allDays = getDays(courses)
-    if(allDays.length===0) return showToast('Oops! That CSV does not seem to contain a valid timetable.', 5000)
-    ////console.log(allDays)
-    const allTimestampsFormarted = getFormartedTimestamps(courses)
-    ////console.log(allTimestampsFormarted)
-    const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
-    ////console.log(blankTimetable)
-    const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
+
 
     const timetable = {
-      name:'',
-      id:1,
-      courses,
-      allDays,
-      allTimestampsFormarted
+      name: '',
+      id: 1,
+      courses
     }
 
-storeTimetable(timetable)
-    
+    storeTimetable(timetable)
+
     console.log(finalTimetable)
 
     timetableContainer_div.append(finalTimetable)
@@ -121,7 +92,7 @@ save_button.addEventListener('click', async () => {
   showToast('Convertion complete')
 })
 
-discard_button.addEventListener('click',()=>{
+discard_button.addEventListener('click', () => {
   showCsvUploadUI()
   hide(cta_div)
   timetableContainer_div.querySelector('table').remove()
@@ -141,8 +112,30 @@ if ('serviceWorker' in navigator) {
 //deferred events for sw
 let prompted = false
 window.addEventListener('beforeinstallprompt', (event) => {
-  if(prompted) return
+  if (prompted) return
   event.preventDefault();
   showCustomInstallPrompt(event);
   prompted = true
+});
+
+
+
+/*themes*/
+
+const themes = ['ocean-theme', 'desert-theme', 'forest-theme', 'teal-theme', 'olive-theme', 'maroon-theme', 'lime-theme', 'orange-theme', 'coral-theme', 'navy-theme', 'purple-theme', 'turquoise-theme', 'pink-theme', 'plum-theme', 'sky-theme', 'gold-theme', 'purple-sunshine'];
+
+createThemeInputs(themesContainer_div, themes);
+
+// Retrieve the current theme from local storage and apply it
+const currentTheme = getCurrentTheme();
+console.log(currentTheme)
+if (currentTheme) {
+  document.querySelector(`input[value="${currentTheme}"`).setAttribute('checked', true);
+}
+
+// Store the current theme in local storage when it changes
+document.querySelectorAll('input[name="theme"]').forEach(input => {
+  input.addEventListener('change', event => {
+    storeCurrentTheme(event.target.value);
+  });
 });

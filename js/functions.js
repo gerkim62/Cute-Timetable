@@ -163,7 +163,7 @@ export function getCsvString() {
 
 `
 
-const csv2 = `Start,End,Mo,Tu,We,Th,Fr,Sa,Su,Lab,Lab,Course Code,Course Title,Instructor,Option,Venue,Location,Building
+  const csv2 = `Start,End,Mo,Tu,We,Th,Fr,Sa,Su,Lab,Lab,Course Code,Course Title,Instructor,Option,Venue,Location,Building
 09:00:00,10:30:00,true,true,true,true,true,true,true,false,false,"MATH120","Calculus I","Dr. Smith","Group A","H101","Ground Floor","Math Building"
 11:00:00,12:30:00,true,true,true,true,true,true,true,false,false,"CHEM101","Introduction to Chemistry","Dr. Johnson","Group A","L101 (Lab A)","Ground Floor","Science Building"
 13:00:00,14:30:00,true,true,true,true,true,true,true,false,false,"BIOL105","Introduction to Biology","Dr. Williams","Group B","L102 (Lab B)","Ground Floor","Science Building"
@@ -190,7 +190,7 @@ export function fillBlankTimetable(blankTimetable, courses, unscheduledLabel) {
       const target_td = finalTimetable.querySelector(`[data-top-header="${formartedTimestamp}"][data-left-header="${day.name}"]`);
       target_td.textContent = course.code
       target_td.setAttribute(`data-color`, course.color);
-      target_td.style.backgroundColor=`var(${course.color})`
+      target_td.style.backgroundColor = `var(${course.color})`
     })
   })
 
@@ -199,30 +199,30 @@ export function fillBlankTimetable(blankTimetable, courses, unscheduledLabel) {
 }
 
 function addStylingClasses(table, unscheduledLabel) {
-//  const unscheduledLabel = 'No Class'
+  //  const unscheduledLabel = 'No Class'
   const rows = table.getElementsByTagName("tr");
 
   for (let i = 0; i < rows.length; i++) {
     const cells = rows[i].getElementsByTagName("td");
 
     for (let j = 0; j < cells.length; j++) {
-      if(cells[j].innerHTML.trim() !== unscheduledLabel){
+      if (cells[j].innerHTML.trim() !== unscheduledLabel) {
         cells[j].classList.add('scheduled')
       }
-      
+
       if (cells[j].innerHTML.trim() === unscheduledLabel) {
         cells[j].classList.add("unscheduled");
       }
 
-      if (cells[j - 1] && cells[j - 1].innerHTML.trim() === unscheduledLabel && cells[j].innerHTML.trim() === unscheduledLabel || cells[j-1] && cells[j-1].innerHTML.trim() === cells[j].innerHTML.trim()) {
+      if (cells[j - 1] && cells[j - 1].innerHTML.trim() === unscheduledLabel && cells[j].innerHTML.trim() === unscheduledLabel || cells[j - 1] && cells[j - 1].innerHTML.trim() === cells[j].innerHTML.trim()) {
         cells[j].classList.add("following-unscheduled");
       }
 
-      if (i > 1 && rows[i - 1] && rows[i - 1].getElementsByTagName("td")[j].innerHTML.trim() === unscheduledLabel && cells[j].innerHTML.trim()===unscheduledLabel) {
+      if (i > 1 && rows[i - 1] && rows[i - 1].getElementsByTagName("td")[j].innerHTML.trim() === unscheduledLabel && cells[j].innerHTML.trim() === unscheduledLabel) {
         cells[j].classList.add("below-unscheduled");
       }
-      
-      
+
+
     }
   }
 }
@@ -236,17 +236,18 @@ export function readCSV(file) {
   });
 }
 
-let showingPropertiesFor =null
-export async function showProperties(courseCode, courses){
- propertiesCard_div.classList.add('hidden')
-  if(!showingPropertiesFor)propertiesCard_div.style.opacity=0.2
-  const alreadyShowing = courseCode===showingPropertiesFor
+let showingPropertiesFor = null
+export async function showProperties(courseCode, courses) {
+  propertiesCard_div.classList.add('hidden')
+  if (!showingPropertiesFor) propertiesCard_div.style.opacity = 0.2
+  const alreadyShowing = courseCode === showingPropertiesFor
   propertiesCard_div.classList.remove('hidden')
   propertiesCardOverlay_div.classList.remove('hidden')
- //console.log(courseCode, courses)
-;(!alreadyShowing || !showingPropertiesFor===null)? await fadeOut(propertiesCard_div):""
-  courses.forEach(course=>{
-    if(course.code === courseCode){
+  //console.log(courseCode, courses)
+  ;
+  (!alreadyShowing || !showingPropertiesFor === null) ? await fadeOut(propertiesCard_div): ""
+  courses.forEach(course => {
+    if (course.code === courseCode) {
       courseCode_p.innerHTML = course.code
       courseGroup_p.innerHTML = course.option
       courseTitle_p.innerHTML = course.title
@@ -254,28 +255,28 @@ export async function showProperties(courseCode, courses){
       courseBuilding_p.innerHTML = course.building
       courseLocation_p.innerHTML = course.location
       courseInstructor_p.innerHTML = course.instructor
-      
+
     }
-  })
- ;(!alreadyShowing||showingPropertiesFor===null)? await fadeIn(propertiesCard_div):""
-  showingPropertiesFor=courseCode
-  propertiesCard_div.style.opacity=1
-  
+  });
+  (!alreadyShowing || showingPropertiesFor === null) ? await fadeIn(propertiesCard_div): ""
+  showingPropertiesFor = courseCode
+  propertiesCard_div.style.opacity = 1
+
 }
 
-export function showCsvUploadUI(){
+export function showCsvUploadUI() {
   fileUploadUI_div.classList.remove('hidden')
 }
 
-export function hideCsvUploadUI(){
+export function hideCsvUploadUI() {
   fileUploadUI_div.classList.add('hidden')
 }
 
-export function showToast(message, duration=3000) {
+export function showToast(message, duration = 3000) {
   const animationDuration = 500
   propertiesCard_div.classList.add('hidden')
-  const toastDurationInMillisecond = duration+animationDuration
-  console.log({duration})
+  const toastDurationInMillisecond = duration + animationDuration
+  console.log({ duration })
   const toast = document.createElement('div');
   toast.innerText = message
   toast.className = 'show toast'
@@ -285,40 +286,40 @@ export function showToast(message, duration=3000) {
   }, toastDurationInMillisecond);
 }
 
-export async function fadeOut(element){
- // element.classList.remove('fade-in')
- //console.log("out fade")
-  
+export async function fadeOut(element) {
+  // element.classList.remove('fade-in')
+  //console.log("out fade")
+
   return new Promise((resolve, reject) => {
-if(!showingPropertiesFor) return resolve()
+    if (!showingPropertiesFor) return resolve()
     element.classList.add('fade-out')
     element.addEventListener('animationend', () => {
-     //console.log("out fade after event")
+      //console.log("out fade after event")
       element.classList.remove('fade-out')
-      
+
       resolve()
     })
   })
 }
 
-export async function fadeIn(element){
+export async function fadeIn(element) {
   //element.classList.remove('fade-out')
- //console.log("fade in")
+  //console.log("fade in")
   return new Promise((resolve, reject) => {
     element.classList.add('fade-in')
     element.addEventListener('animationend', () => {
       element.classList.remove('fade-in')
-     //console.log('end')
+      //console.log('end')
       resolve()
     })
   })
 }
 
-export async function hideProperties(){
+export async function hideProperties() {
   await fadeOut(propertiesCard_div)
   propertiesCard_div.classList.add('hidden')
   propertiesCardOverlay_div.classList.add('hidden')
-  showingPropertiesFor=null
+  showingPropertiesFor = null
 }
 
 
@@ -369,7 +370,7 @@ function getWidth(element) {
   );
 
   // Return the width
- //console.log({widthCalculated})
+  //console.log({widthCalculated})
   return widthCalculated;
 }
 
@@ -379,7 +380,7 @@ function getScaleToFit(parent) {
   if (isOverflowing(parent)) {
     // Calculate the scale factor to fit the parent within its container
     const scaleX = getWidth(parent) / parent.scrollWidth;
-    const scaleY = Infinity//parent.clientHeight / parent.scrollHeight;
+    const scaleY = Infinity //parent.clientHeight / parent.scrollHeight;
     const scale = Math.min(scaleX, scaleY);
 
     // Return the scale factor
@@ -390,19 +391,19 @@ function getScaleToFit(parent) {
   return 1;
 }
 
-export function preventElementOverflow(element, parent){
-  
+export function preventElementOverflow(element, parent) {
+
   const scale = getScaleToFit(parent)
- //console.log(scale, element)
+  //console.log(scale, element)
   element.style.transform = `scale(${scale/1.1})`
-  
+
 }
 
-export function show(element){
+export function show(element) {
   element.classList.remove('hidden')
 }
 
-export function hide(element){
+export function hide(element) {
   element.classList.add('hidden')
 }
 
@@ -435,20 +436,20 @@ function sanitizeName(name) {
   });
 
   // Add the .png extension if it is not already included
-  return sanitizedName.endsWith('.png')?sanitizedName:`${sanitizedName}.png`;
+  return sanitizedName.endsWith('.png') ? sanitizedName : `${sanitizedName}.png`;
 }
 
 
-export function showLoader(){
+export function showLoader() {
   show(loader_div)
 }
-export function hideLoader(){
+export function hideLoader() {
   hide(loader_div)
 }
 
 export function showCustomInstallPrompt(event) {
   customInstallUI.classList.remove('hidden');
-  notNowButton.addEventListener('click',()=>{
+  notNowButton.addEventListener('click', () => {
     customInstallUI.classList.add('hidden');
     console.log('clicked not now')
   })
@@ -456,7 +457,7 @@ export function showCustomInstallPrompt(event) {
     event.prompt();
     customInstallUI.classList.add('hidden');
     event.userChoice.then((choice) => {
-      
+
       if (choice.outcome === 'accepted') {
         console.log('The app was installed');
       } else {
@@ -465,4 +466,41 @@ export function showCustomInstallPrompt(event) {
       customInstallUI.classList.add('hidden');
     });
   });
+}
+
+function showTimetable(timetable) {
+  const allDays = getDays(timetable.courses)
+  if (allDays.length === 0) return showToast('Oops! That CSV does not seem to contain a valid timetable.', 5000)
+  ////console.log(allDays)
+  const allTimestampsFormarted = getFormartedTimestamps(courses)
+  ////console.log(allTimestampsFormarted)
+  const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
+  ////console.log(blankTimetable)
+  const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
+}
+
+export function showSavedTimetables() {
+  const timetables = retrieveTimetables()
+
+
+}
+
+export function createThemeInputs(themesContainer, themes) {
+  themes.forEach(theme => {
+    const input = document.createElement('input');
+    input.type = 'radio';
+    input.name = 'theme';
+    input.value = theme;
+    themesContainer.appendChild(input);
+  });
+}
+
+// Function to store the current theme in local storage
+export function storeCurrentTheme(theme) {
+  localStorage.setItem('currentTheme', theme);
+}
+
+// Function to retrieve the current theme from local storage
+export function getCurrentTheme() {
+  return localStorage.getItem('currentTheme');
 }

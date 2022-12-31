@@ -34,4 +34,5 @@ const loader_div = document.getElementById('loader')
 const customInstallUI = document.getElementById('custom-install-ui');
 const customInstallButton = document.getElementById('install');
 const notNowButton = document.getElementById('not-now')
-console.log(notNowButton)
+
+const themesContainer_div = document.querySelector('#themes-container');

@@ -16,7 +16,7 @@
   
  /* box-shadow: inset rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, inset rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;*/
   max-width: 98%;
-  background: #f1fdf3;
+  background: var(--color-secondary);
   width: max-content;
   height: max-content;
 
@@ -39,7 +39,7 @@ table tr th p{
 
 table {
   border-collapse: collapse;
-  background: #f1fdf3;
+  background: var(--color-secondary);
 }
 
 table th{
@@ -48,7 +48,7 @@ table th{
   color: rgba(0, 0, 0, .75);
   color:var(--color-primary);
   color: #1B1212;
-  color:#6568d340;
+  color:var(--color-primary)40;
  color: rgba(101, 104, 211, .85);
 }
 
@@ -86,7 +86,7 @@ table td.unscheduled {
 .card {
   width: 200px;
   min-height: max-content;
-  background: #fff;
+  background: var(--color-secondary);
   margin:10px auto;
   
   border-radius: 5px;
@@ -99,8 +99,8 @@ table td.unscheduled {
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  color: #6568d3;
-  background: #f1fdf3;
+  color: var(--color-primary);
+  background: var(--color-secondary);
   position: relative;
   
   z-index: 201;
@@ -190,12 +190,12 @@ table td.unscheduled {
   height: 100%;
   clip-path: circle(60px at center -10px);
   text-align: center;
-  background: #6568d3;
+  background: var(--color-primary);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
 .card .circle h2 {
-  color: #fff;
+  color: var(--color-secondary);
   font-size: 1rem;
   padding: 25px;
   display: flex;

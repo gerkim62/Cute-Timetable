@@ -1,8 +1,8 @@
 console.log('from sw')
 
 
-const CACHE_NAME = "v1";
-const assetsToCache = [
+const CACHE_NAME = "v2";
+/*const assetsToCache = [
   "/index.html",
   "/",
   "/pages/offline.html",
@@ -62,4 +62,4 @@ self.addEventListener("fetch", event => {
       });
     })
   );
-});
+});*/
