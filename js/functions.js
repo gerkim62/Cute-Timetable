@@ -234,7 +234,7 @@ export function readCSV(file) {
     reader.onload = event => resolve(event.target.result);
     reader.onerror = error => reject(error);
     reader.readAsText(file);
-    console.log(reader.result)
+    //console.log(reader.result)
   });
 }
 
