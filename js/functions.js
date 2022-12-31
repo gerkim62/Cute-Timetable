@@ -506,3 +506,10 @@ export function storeCurrentTheme(theme) {
 export function getCurrentTheme() {
   return localStorage.getItem('currentTheme');
 }
+
+export function getFileExtension(file) {
+  var fileName = file.name;
+  var fileNameParts = fileName.split('.');
+  var fileExtension = fileNameParts[fileNameParts.length - 1];
+  return fileExtension;
+}

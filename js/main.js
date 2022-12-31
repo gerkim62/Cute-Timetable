@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension } from './functions.js'
 
 //console.log(retrieveTimetables(), 'updated')
 showToast('loaded')
@@ -29,7 +29,7 @@ fileInput.addEventListener('change', event => {
 
     ////console.log(courses)
     const allDays = getDays(courses)
-    if (allDays.length === 0) return showToast('Oops! That CSV does not seem to contain a valid timetable.', 5000)
+    if (allDays.length === 0) return showToast('Oops! That file does not seem to contain a valid CSV timetable. Please check.', 5000)
     //////console.log(allDays)
     const allTimestampsFormarted = getFormartedTimestamps(courses)
     //////console.log(allTimestampsFormarted)
@@ -53,7 +53,9 @@ fileInput.addEventListener('change', event => {
     preventElementOverflow(finalTimetable, timetableContainer_div)
     hideCsvUploadUI()
     show(cta_div)
-  }).catch(e=>console.log(e));
+  }).catch(e=>{
+    showToast('Oops! Could not read file. Make sure the file is not corrupt or empty.')
+  });
 });
 
 /*opening More properties of course*/
