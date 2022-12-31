@@ -19,8 +19,8 @@ const unscheduledLabel = 'No Class'
 const fileInput = document.getElementById('real-file');
 fileInput.addEventListener('change', event => {
   const file = event.target.files[0];
-  readCSV(file).then(csvString => {
-    console.log(csvString);
+  readCSV(file).then((csvString,error) => {
+    console.log({csvString,error});
 
     courses = getCourses(csvString)
     console.log(courses)
