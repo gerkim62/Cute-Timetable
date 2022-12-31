@@ -53,7 +53,7 @@ fileInput.addEventListener('change', event => {
     preventElementOverflow(finalTimetable, timetableContainer_div)
     hideCsvUploadUI()
     show(cta_div)
-  });
+  }).catch(e=>console.log(e));
 });
 
 /*opening More properties of course*/
