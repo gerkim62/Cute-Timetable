@@ -1,8 +1,8 @@
-console.log('from sw')
+/*console.log('from sw')
 
 
 const CACHE_NAME = "v2";
-/*const assetsToCache = [
+const assetsToCache = [
   "/index.html",
   "/",
   "/pages/offline.html",

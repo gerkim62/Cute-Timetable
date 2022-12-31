@@ -109,6 +109,7 @@ discard_button.addEventListener('click', () => {
   timetableContainer_div.querySelector('table').remove()
 })
 
+/*
 //service worker registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
@@ -129,7 +130,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
   prompted = true
 });
 
-
+*/
 
 /*themes*/
 
