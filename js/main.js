@@ -1,6 +1,6 @@
 import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension } from './functions.js'
 
-//console.log(retrieveTimetables(), 'updated')
+////console.log(retrieveTimetables(), 'updated')
 showToast('loaded')
 let courses;
 
@@ -19,7 +19,7 @@ const unscheduledLabel = 'No Class'
 const fileInput = document.getElementById('real-file');
 fileInput.addEventListener('change', event => {
   const file = event.target.files[0];
-  console.log(file,"file")
+  //console.log(file,"file")
   readCSV(file).then((csvString,error) => {
     //console.log({csvString,error});
 
@@ -30,11 +30,11 @@ fileInput.addEventListener('change', event => {
     ////console.log(courses)
     const allDays = getDays(courses)
     if (allDays.length === 0) return showToast('Oops! That file does not seem to contain a valid CSV timetable. Please check.', 5000)
-    //////console.log(allDays)
+    ////////console.log(allDays)
     const allTimestampsFormarted = getFormartedTimestamps(courses)
-    //////console.log(allTimestampsFormarted)
+    ////////console.log(allTimestampsFormarted)
     const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
-    //////console.log(blankTimetable)
+    ////////console.log(blankTimetable)
     const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
 
     const timetable = {
@@ -47,7 +47,7 @@ fileInput.addEventListener('change', event => {
 
     storeTimetable(timetable)
 
-    //console.log(finalTimetable)
+    ////console.log(finalTimetable)
 
     timetableContainer_div.append(finalTimetable)
     preventElementOverflow(finalTimetable, timetableContainer_div)
@@ -77,7 +77,7 @@ closePropertiesCard_button.addEventListener('click', hideProperties)
 propertiesCardOverlay_div.addEventListener('click', hideProperties, showLoader, hideLoader)
 
 save_button.addEventListener('click', async () => {
-  //console.log('click')
+  ////console.log('click')
   showLoader()
   hideProperties()
   showToast('Convertion started...')
@@ -99,7 +99,7 @@ save_button.addEventListener('click', async () => {
 
   const timetableDataUrl = await convertElementToImage(timetable, imageOptions)
 
-  ////console.log(timetableDataUrl)
+  //////console.log(timetableDataUrl)
   downloadImage(timetableDataUrl, 'timetable.png')
   hideLoader()
   showToast('Convertion complete')
@@ -116,9 +116,9 @@ discard_button.addEventListener('click', () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
-      //console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      ////console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function(err) {
-      //console.log('ServiceWorker registration failed: ', err);
+      ////console.log('ServiceWorker registration failed: ', err);
     });
   });
 }
@@ -142,7 +142,7 @@ createThemeInputs(themesContainer_div, themes);
 
 // Retrieve the current theme from local storage and apply it
 const currentTheme = getCurrentTheme();
-//console.log(currentTheme)
+////console.log(currentTheme)
 if (currentTheme) {
   document.querySelector(`input[value="${currentTheme}"`).setAttribute('checked', true);
 }
