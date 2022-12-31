@@ -20,7 +20,7 @@ const fileInput = document.getElementById('real-file');
 fileInput.addEventListener('change', event => {
   const file = event.target.files[0];
   readCSV(file).then(csvString => {
-    //console.log(csvString);
+    console.log(csvString);
 
     courses = getCourses(csvString)
     console.log(courses)
