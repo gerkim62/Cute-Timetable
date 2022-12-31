@@ -22,26 +22,35 @@ fileInput.addEventListener('change', event => {
   readCSV(file).then(csvString => {
     //console.log(csvString);
 
-    courses = getCourses(csvString)
-    console.log(courses)
-
-    //console.log(courses)
-
-
-    const timetable = {
-      name: '',
-      id: 1,
-      courses
-    }
-
-    storeTimetable(timetable)
-
-    console.log(finalTimetable)
-
-    timetableContainer_div.append(finalTimetable)
-    preventElementOverflow(finalTimetable, timetableContainer_div)
-    hideCsvUploadUI()
-    show(cta_div)
+        courses = getCourses(csvString)
+        console.log(courses)
+    
+        //console.log(courses)
+        const allDays = getDays(courses)
+        if (allDays.length === 0) return showToast('Oops! That CSV does not seem to contain a valid timetable.', 5000)
+        ////console.log(allDays)
+        const allTimestampsFormarted = getFormartedTimestamps(courses)
+        ////console.log(allTimestampsFormarted)
+        const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
+        ////console.log(blankTimetable)
+        const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
+    
+        const timetable = {
+          name: '',
+          id: 1,
+          courses,
+          allDays,
+          allTimestampsFormarted
+        }
+    
+        storeTimetable(timetable)
+    
+        console.log(finalTimetable)
+    
+        timetableContainer_div.append(finalTimetable)
+        preventElementOverflow(finalTimetable, timetableContainer_div)
+        hideCsvUploadUI()
+        show(cta_div)
   });
 });
 
