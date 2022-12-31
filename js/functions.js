@@ -228,6 +228,7 @@ function addStylingClasses(table, unscheduledLabel) {
 }
 
 export function readCSV(file) {
+  console.log('reading file')
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = event => resolve(event.target.result);
