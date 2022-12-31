@@ -1,7 +1,7 @@
 import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme } from './functions.js'
 
 console.log(retrieveTimetables(), 'updated')
-
+showToast('loaded')
 let courses;
 
 customBtn.addEventListener("click", function() {
