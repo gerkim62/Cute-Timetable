@@ -493,6 +493,7 @@ export function createThemeInputs(themesContainer, themes) {
     input.type = 'radio';
     input.name = 'theme';
     input.value = theme;
+    input.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue(`--${theme}-primary`);
     themesContainer.appendChild(input);
   });
 }
