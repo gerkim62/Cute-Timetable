@@ -157,6 +157,8 @@ document.querySelectorAll('input[name="theme"]').forEach(input => {
   });
 });
 
+hide(themesContainer_div)
+
 console.log(themePickerOverlay_div, themesContainer_div)
 
 themePickerOverlay_div.addEventListener('click', ()=>{
