@@ -156,3 +156,11 @@ document.querySelectorAll('input[name="theme"]').forEach(input => {
     storeCurrentTheme(event.target.value);
   });
 });
+
+console.log(themePickerOverlay_div, themesContainer_div)
+
+themePickerOverlay_div.addEventListener('click', ()=>{
+// hide(themesContainer_div)
+  alert()
+  console.log('click')
+})

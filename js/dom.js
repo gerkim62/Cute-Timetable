@@ -36,3 +36,4 @@ const customInstallButton = document.getElementById('install');
 const notNowButton = document.getElementById('not-now')
 
 const themesContainer_div = document.querySelector('#themes-container');
+const themePickerOverlay_div= document.getElementById('theme-picker-overlay')
