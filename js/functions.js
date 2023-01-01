@@ -489,12 +489,24 @@ export function showSavedTimetables() {
 
 export function createThemeInputs(themesContainer, themes) {
   themes.forEach(theme => {
+      const input = `<input type="radio" id="${theme.name}" name="theme" value="${theme.name}">
+  <label id='${theme.name}-label' for="${theme.name}">${theme.name.split('-')[0]}</label>`
+    
+    themesContainer.innerHTML+=input
+    
+    const theme_input = themesContainer.querySelector(`#${theme.name}`)
+    const theme_label = themesContainer.querySelector(`#${theme.name}-label`)
+ 
+    theme_label.style.backgroundColor=theme.colors.primary
+    //console.log(theme_label,theme_label.style)
+   // themesContainer.appendChild(input);
+    /*
     const input = document.createElement('input');
     input.type = 'radio';
     input.name = 'theme';
     input.value = theme;
     input.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue(`--${theme}-primary`);
-    themesContainer.appendChild(input);
+    themesContainer.appendChild(input);*/
   });
 }
 

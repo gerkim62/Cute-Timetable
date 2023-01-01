@@ -10,7 +10,6 @@ customBtn.addEventListener("click", function() {
 });
 
 
-show(propertiesCard_div)
 const unscheduledLabel = 'No Class'
 
 
@@ -136,7 +135,11 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 /*themes*/
 
-const themes = ['ocean-theme', 'desert-theme', 'forest-theme', 'teal-theme', 'olive-theme', 'maroon-theme', 'lime-theme', 'orange-theme', 'coral-theme', 'navy-theme', 'purple-theme', 'turquoise-theme', 'pink-theme', 'plum-theme', 'sky-theme', 'gold-theme', 'purple-sunshine'];
+//const themes = ['ocean-theme', 'desert-theme', 'forest-theme', 'teal-theme', 'olive-theme', 'maroon-theme', 'lime-theme', 'orange-theme', 'coral-theme', 'navy-theme', 'purple-theme', 'turquoise-theme', 'pink-theme', 'plum-theme', 'sky-theme', 'gold-theme', 'purple-sunshine'];
+
+const themes=[{name:"ocean-theme",colors:{primary:"#0077be",secondary:"#e6f7ff",accent:"#4db6ac",neutral:"#333333"}},{name:"desert-theme",colors:{primary:"#e67e22",secondary:"#fdf2e9",accent:"#d35400",neutral:"#555555"}},{name:"forest-theme",colors:{primary:"#2ecc71",secondary:"#eafaf1",accent:"#27ae60",neutral:"#444444"}},{name:"teal-theme",colors:{primary:"#008080",secondary:"#e0ffff",accent:"#006666",neutral:"#444444"}},{name:"olive-theme",colors:{primary:"#808000",secondary:"#f5f5dc",accent:"#556b2f",neutral:"#666666"}},{name:"maroon-theme",colors:{primary:"#800000",secondary:"#f5f5f5",accent:"#663399",neutral:"#444444"}},{name:"lime-theme",colors:{primary:"#32cd32",secondary:"#f0fff0",accent:"#228b22",neutral:"#444444"}},{name:"orange-theme",colors:{primary:"#ffa500",secondary:"#fff5ee",accent:"#ff7f50",neutral:"#666666"}},{name:"coral-theme",colors:{primary:"#ff7f50",secondary:"#fff5ee",accent:"#dc143c",neutral:"#666666"}},{name:"navy-theme",colors:{primary:"#3498db",secondary:"#ecf0f1",accent:"#2980b9",neutral:"#555555"}},{name:"purple-theme",colors:{primary:"#9b59b6",secondary:"#f3e5f5",accent:"#8e44ad",neutral:"#666666"}},{name:"turquoise-theme",colors:{primary:"#1abc9c",secondary:"#e1f5fe",accent:"#16a085",neutral:"#444444"}},{name:"pink-theme",colors:{primary:"#e91e63",secondary:"#fce4ec",accent:"#c2185b",neutral:"#666666"}},{name:"plum-theme",colors:{primary:"#9b59b6",secondary:"#f3e5f5",accent:"#8e44ad",neutral:"#666666"}}];
+
+//console.log(themes.length)
 
 createThemeInputs(themesContainer_div, themes);
 

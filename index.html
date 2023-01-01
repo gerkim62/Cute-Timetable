@@ -4,33 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="manifest.webmanifest">
+  <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#6568d3">
-  <link rel="apple-touch-icon" href="images/icon-192x192.png"> 
-  
+  <link rel="apple-touch-icon" href="images/icon-192x192.png">
+
   <script defer src="js/dom.js"></script>
   <script defer src="js/nav.js"></script>
   <script type="module" src="js/main.js"></script>
   <title>Beautiful UEAB Student's Timetable - made by Gerison</title>
   <link rel="stylesheet" href="css/reset.css">
 
-  <link rel="stylesheet" href="css/variables.css" >
+  <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/main.css">
   <script defer src="https://kit.fontawesome.com/ec6d630e9e.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/utility.css" >
-  <link rel="stylesheet" href="css/nav.css" >
-  <link rel="stylesheet" href="css/tooltip.css" >
-    <link rel="stylesheet" href="css/toast.css" >
-  <link rel="stylesheet" href="css/timetable.css" >
-  <link rel="stylesheet" href="css/loader.css" >
+  <link rel="stylesheet" href="css/utility.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/tooltip.css">
+  <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/timetable.css">
+  <link rel="stylesheet" href="css/loader.css">
 
   <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   <script>
     eruda.init();
   </script>
-  
-  
-<script defer src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/dist/dom-to-image.min.js"></script>
 
 </head>
 
@@ -40,26 +40,26 @@
   <!--since header is position fixed-->
   <div class="header-space-replacement"></div>
   <header>
-    
+
     <h1 class="title">Timetable</h1>
-    
-     <div class="nav-open-btn">
-       <div class="nav-open-btn__bar"></div>
-       <div class="nav-open-btn__bar"></div>
-       <div class="nav-open-btn__bar"></div>
-     </div>
+
+    <div class="nav-open-btn">
+      <div class="nav-open-btn__bar"></div>
+      <div class="nav-open-btn__bar"></div>
+      <div class="nav-open-btn__bar"></div>
+    </div>
   </header>
-  
+
   <div id="timetable-container">
 
     <div id="properties-card" class="card hidden">
-  
-  
-  
+
+
+
       <button id="close-properties" class="close">
         ×
       </button>
-  
+
       <div class="circle">
         <h2 id="code">COURSECODE</h2>
       </div>
@@ -84,50 +84,64 @@
             <p id="group">Option</p>
           </li>
         </ul>
-  
+
       </div>
     </div>
   </div>
-    <div id="card-overlay" class="card-overlay hidden"> </div>
- 
+  <div id="card-overlay" class="card-overlay hidden"> </div>
+
 
   <nav class="nav">
     <!--close button-->
     <h1 class="title secondary">Timetable</h1>
-    
+
     <div class="nav__close"></div>
     <!--navigation list-->
     <ul class="nav__list">
       <!--navigation item-->
       <li class="nav__item">
-        <!--navigation link--><a class="nav__link" title="Home"><i class="nav__link-icon far fa-folder"></i><p>Saved Timetables</p></a>
+        <!--navigation link--><a class="nav__link" title="Home"><i class="nav__link-icon far fa-folder"></i>
+          <p>Saved Timetables</p>
+        </a>
       </li>
       <!--navigation item-->
       <li id="new-timetable" class="nav__item">
-        <!--navigation link--><a class="nav__link" title="About"><i class="nav__link-icon far fa-plus-square"></i><p>Create New</p></a>
+        <!--navigation link--><a class="nav__link" title="About"><i class="nav__link-icon far fa-plus-square"></i>
+          <p>Create New</p>
+        </a>
       </li>
       <!--navigation item-->
       <li class="nav__item">
-        <!--navigation link--><a class="nav__link" title="Tour"><i class="nav__link-icon fas fa-coins"></i><p>Support Me</p></a>
+        <!--navigation link--><a class="nav__link" title="Tour"><i class="nav__link-icon fas fa-coins"></i>
+          <p>Support Me</p>
+        </a>
       </li>
       <!--navigation item-->
       <li class="nav__item">
-        <!--navigation link--><a class="nav__link" title="Settings"><i class="nav__link-icon far fa-envelope"></i><p>Contact Me</p></a>
+        <!--navigation link--><a class="nav__link" title="Settings"><i class="nav__link-icon far fa-envelope"></i>
+          <p>Contact Me</p>
+        </a>
       </li>
       <!--navigation item-->
       <li class="nav__item">
-        <!--navigation link--><a class="nav__link" title="Plans"><i class="nav__link-icon far fa-lightbulb"></i><p>Suggestions</p></a>
+        <!--navigation link--><a class="nav__link" title="Plans"><i class="nav__link-icon far fa-lightbulb"></i>
+          <p>Suggestions</p>
+        </a>
       </li>
       <!--navigation item-->
       <li class="nav__item">
-        <!--navigation link--><a class="nav__link" title="Log In"><i class="nav__link-icon fas fa-exclamation-triangle"></i><p>Report an Error</p></a>
+        <!--navigation link--><a class="nav__link" title="Log In"><i class="nav__link-icon fas fa-exclamation-triangle"></i>
+          <p>Report an Error</p>
+        </a>
       </li>
       <li class="nav__item">
-        <!--navigation link--><a class="nav__link" title="Log In"><i class="nav__link-icon fas fa-info-circle"></i><p>About</p></a>
+        <!--navigation link--><a class="nav__link" title="Log In"><i class="nav__link-icon fas fa-info-circle"></i>
+          <p>About</p>
+        </a>
       </li>
     </ul>
   </nav>
-  
+
 
   <div id="upload-ui" class="file-upload">
     <p class="upload-message"> Upload CSV file to generate your first Cute timetable! </p>
@@ -138,68 +152,59 @@
 
     </div>
     <button class="upload-btn"> UPLOAD </button>
-   <p style="text-align: left;font-size: .75rem;color:black" class="upload-message">Need help finding your CSV file? <a href="pages/csv-download-instructions.html">Click here</a> </p>
+    <p style="text-align: left;font-size: .75rem;color:black" class="upload-message">Need help finding your CSV file? <a href="pages/csv-download-instructions.html">Click here</a> </p>
 
   </div>
 
   <div id="cta" class="cta-buttons hidden">
     <button id="save" class="custom-button"><i class="fas fa-save"></i>Save</button>
-    
+
     <button id="discard" class="custom-button"><i class="fas fa-trash"></i>Discard</button>
   </div>
-  
-    <div id="loader" class="hidden dots-loader"></div>
-    
-    
-<div class="custom-install-ui hidden" id="custom-install-ui">
-  <div class="ui">
 
-    <p>Would you like to install our app for a better experience? It works offline, loads faster, and is easier to access. We promise you won't be disappointed!</p>
-    <div class="buttons">
-      <div></div>
-      <button id="not-now" class="not-now"><i class="far fa-times-circle"></i>Not now</button>
-      <button id="install"><i class="far fa-check-circle"></i>Install</button>
+  <div id="loader" class="hidden dots-loader"></div>
+
+
+  <div class="custom-install-ui hidden" id="custom-install-ui">
+    <div class="ui">
+
+      <p>Would you like to install our app for a better experience? It works offline, loads faster, and is easier to access. We promise you won't be disappointed!</p>
+      <div class="buttons">
+        <div></div>
+        <button id="not-now" class="not-now"><i class="far fa-times-circle"></i>Not now</button>
+        <button id="install"><i class="far fa-check-circle"></i>Install</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="themes-container"><div class="radio-container">
-  <input type="radio" id="radio1" name="radio" value="radio1" checked>
-  <label for="radio1">Radio 1</label>
-
-  <input type="radio" id="radio2" name="radio" value="radio2">
-  <label for="radio2">Radio 2</label>
-
-  <input type="radio" id="radio3" name="radio" value="radio3">
-  <label for="radio3">Radio 3</label>
-</div>
-</div>
+  <div id="themes-container">
+  </div>
 
 
 
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCY17sFXoskTPNQ4nLb2rpZwdOoNxvyS3I",
-    authDomain: "timetable-by-gerison.firebaseapp.com",
-    projectId: "timetable-by-gerison",
-    storageBucket: "timetable-by-gerison.appspot.com",
-    messagingSenderId: "469339277350",
-    appId: "1:469339277350:web:4cb396ec1b2aa3b0bbfee7",
-    measurementId: "G-3YVFMZZBTT"
-  };
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCY17sFXoskTPNQ4nLb2rpZwdOoNxvyS3I",
+      authDomain: "timetable-by-gerison.firebaseapp.com",
+      projectId: "timetable-by-gerison",
+      storageBucket: "timetable-by-gerison.appspot.com",
+      messagingSenderId: "469339277350",
+      appId: "1:469339277350:web:4cb396ec1b2aa3b0bbfee7",
+      measurementId: "G-3YVFMZZBTT"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </body>
 
 </html>
