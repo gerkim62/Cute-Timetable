@@ -294,7 +294,7 @@ button:active {
 }
 
 #themes-container.showing{
-    animation: showThemePicker 340ms ease;
+    animation: showThemePicker 1000ms ease;
       animation-fill-mode: forwards;
 }
 

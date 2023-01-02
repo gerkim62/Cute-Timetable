@@ -163,22 +163,25 @@ document.querySelectorAll('input[name="theme"]').forEach(input => {
 
 themesContainer_div.addEventListener('click', e => {
   // hide(themesContainer_div)
-  const isOverlayClicked = (e.target.id==="theme-picker-overlay")
-  
+  const isOverlayClicked = (e.target.id === "theme-picker-overlay")
+
   isOverlayClicked && hideThemePicker()
 })
 //makeDraggable(themesContainerOpener_div)
-themesContainerOpener_div.addEventListener('click',()=>{
-  const isThemePickerShowing = themesContainer_div.classList.includes('showing') )
-  console.log(isThemePickerShowing)
-  isThemePickerShowing?hideThemePicker():showThemePicker()
+themesContainerOpener_div.addEventListener('click', () => {
+  const isThemePickerShowing = themesContainer_div.classList.contains('showing')
+  // console.log(isThemePickerShowing)
+  isThemePickerShowing ? hideThemePicker() : showThemePicker()
 })
 
-function showThemePicker(){
-    themesContainerOpener_div.style.transform = 'scale(.1)'
-    show(themesContainer_div)
+function showThemePicker() {
+  themesContainer_div.classList.add('showing')
+  themesContainerOpener_div.style.transform = 'scale(.1)'
+  show(themesContainer_div)
 }
+
 function hideThemePicker() {
+  themesContainer_div.classList.remove('showing')
   themesContainerOpener_div.style.transform = 'scale(1)'
   hide(themesContainer_div)
 }
