@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable } from './functions.js'
 
 ////console.log(retrieveTimetables(), 'updated')
 showToast('loaded')
@@ -19,7 +19,7 @@ const fileInput = document.getElementById('real-file');
 fileInput.addEventListener('change', event => {
   const file = event.target.files[0];
   //console.log(file,"file")
-  readCSV(file).then((csvString,error) => {
+  readCSV(file).then((csvString, error) => {
     //console.log({csvString,error});
 
     courses = getCourses(csvString)
@@ -52,7 +52,7 @@ fileInput.addEventListener('change', event => {
     preventElementOverflow(finalTimetable, timetableContainer_div)
     hideCsvUploadUI()
     show(cta_div)
-  }).catch(e=>{
+  }).catch(e => {
     showToast('Oops! Could not read file. Make sure the file is not corrupt or empty.')
   });
 });
@@ -137,7 +137,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 //const themes = ['ocean-theme', 'desert-theme', 'forest-theme', 'teal-theme', 'olive-theme', 'maroon-theme', 'lime-theme', 'orange-theme', 'coral-theme', 'navy-theme', 'purple-theme', 'turquoise-theme', 'pink-theme', 'plum-theme', 'sky-theme', 'gold-theme', 'purple-sunshine'];
 
-const themes=[{name:"ocean-theme",colors:{primary:"#0077be",secondary:"#e6f7ff",accent:"#4db6ac",neutral:"#333333"}},{name:"desert-theme",colors:{primary:"#e67e22",secondary:"#fdf2e9",accent:"#d35400",neutral:"#555555"}},{name:"forest-theme",colors:{primary:"#2ecc71",secondary:"#eafaf1",accent:"#27ae60",neutral:"#444444"}},{name:"teal-theme",colors:{primary:"#008080",secondary:"#e0ffff",accent:"#006666",neutral:"#444444"}},{name:"olive-theme",colors:{primary:"#808000",secondary:"#f5f5dc",accent:"#556b2f",neutral:"#666666"}},{name:"maroon-theme",colors:{primary:"#800000",secondary:"#f5f5f5",accent:"#663399",neutral:"#444444"}},{name:"lime-theme",colors:{primary:"#32cd32",secondary:"#f0fff0",accent:"#228b22",neutral:"#444444"}},{name:"orange-theme",colors:{primary:"#ffa500",secondary:"#fff5ee",accent:"#ff7f50",neutral:"#666666"}},{name:"coral-theme",colors:{primary:"#ff7f50",secondary:"#fff5ee",accent:"#dc143c",neutral:"#666666"}},{name:"navy-theme",colors:{primary:"#3498db",secondary:"#ecf0f1",accent:"#2980b9",neutral:"#555555"}},{name:"purple-theme",colors:{primary:"#9b59b6",secondary:"#f3e5f5",accent:"#8e44ad",neutral:"#666666"}},{name:"turquoise-theme",colors:{primary:"#1abc9c",secondary:"#e1f5fe",accent:"#16a085",neutral:"#444444"}},{name:"pink-theme",colors:{primary:"#e91e63",secondary:"#fce4ec",accent:"#c2185b",neutral:"#666666"}},{name:"plum-theme",colors:{primary:"#9b59b6",secondary:"#f3e5f5",accent:"#8e44ad",neutral:"#666666"}}];
+const themes = [{ name: "ocean-theme", colors: { primary: "#0077be", secondary: "#e6f7ff", accent: "#4db6ac", neutral: "#333333" } }, { name: "desert-theme", colors: { primary: "#e67e22", secondary: "#fdf2e9", accent: "#d35400", neutral: "#555555" } }, { name: "forest-theme", colors: { primary: "#2ecc71", secondary: "#eafaf1", accent: "#27ae60", neutral: "#444444" } }, { name: "teal-theme", colors: { primary: "#008080", secondary: "#e0ffff", accent: "#006666", neutral: "#444444" } }, { name: "olive-theme", colors: { primary: "#808000", secondary: "#f5f5dc", accent: "#556b2f", neutral: "#666666" } }, { name: "maroon-theme", colors: { primary: "#800000", secondary: "#f5f5f5", accent: "#663399", neutral: "#444444" } }, { name: "lime-theme", colors: { primary: "#32cd32", secondary: "#f0fff0", accent: "#228b22", neutral: "#444444" } }, { name: "orange-theme", colors: { primary: "#ffa500", secondary: "#fff5ee", accent: "#ff7f50", neutral: "#666666" } }, { name: "coral-theme", colors: { primary: "#ff7f50", secondary: "#fff5ee", accent: "#dc143c", neutral: "#666666" } }, { name: "navy-theme", colors: { primary: "#3498db", secondary: "#ecf0f1", accent: "#2980b9", neutral: "#555555" } }, { name: "purple-theme", colors: { primary: "#9b59b6", secondary: "#f3e5f5", accent: "#8e44ad", neutral: "#666666" } }, { name: "turquoise-theme", colors: { primary: "#1abc9c", secondary: "#e1f5fe", accent: "#16a085", neutral: "#444444" } }, { name: "pink-theme", colors: { primary: "#e91e63", secondary: "#fce4ec", accent: "#c2185b", neutral: "#666666" } }, { name: "plum-theme", colors: { primary: "#9b59b6", secondary: "#f3e5f5", accent: "#8e44ad", neutral: "#666666" } }];
 
 //console.log(themes.length)
 
@@ -157,12 +157,28 @@ document.querySelectorAll('input[name="theme"]').forEach(input => {
   });
 });
 
-hide(themesContainer_div)
+//hide(themesContainer_div)
 
-console.log(themePickerOverlay_div, themesContainer_div)
+//console.log(themePickerOverlay_div, themesContainer_div)
 
-themePickerOverlay_div.addEventListener('click', ()=>{
-// hide(themesContainer_div)
-  alert()
-  console.log('click')
+themesContainer_div.addEventListener('click', e => {
+  // hide(themesContainer_div)
+  const isOverlayClicked = (e.target.id==="theme-picker-overlay")
+  
+  isOverlayClicked && hideThemePicker()
 })
+//makeDraggable(themesContainerOpener_div)
+themesContainerOpener_div.addEventListener('click',()=>{
+  const isThemePickerShowing = themesContainer_div.classList.includes('showing') )
+  console.log(isThemePickerShowing)
+  isThemePickerShowing?hideThemePicker():showThemePicker()
+})
+
+function showThemePicker(){
+    themesContainerOpener_div.style.transform = 'scale(.1)'
+    show(themesContainer_div)
+}
+function hideThemePicker() {
+  themesContainerOpener_div.style.transform = 'scale(1)'
+  hide(themesContainer_div)
+}

@@ -162,7 +162,7 @@
     <button id="discard" class="custom-button"><i class="fas fa-trash"></i>Discard</button>
   </div>
 
-  <div id="loader" class=" dots-loader"></div>
+  <div id="loader" class="hidden dots-loader"></div>
 
 
   <div class="custom-install-ui hidden" id="custom-install-ui">
@@ -177,35 +177,13 @@
     </div>
   </div>
 
-  <div id="themes-container">
+  <div id="themes-container showing">
     <div id="theme-picker-overlay" class="overlay"></div>
   </div>
 
+<div flow="right" tooltipHidden="Themes" class="themes-container-opener" id="themes-container-opener"><i class="fas fa-palette"></i></div>
 
 
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyCY17sFXoskTPNQ4nLb2rpZwdOoNxvyS3I",
-      authDomain: "timetable-by-gerison.firebaseapp.com",
-      projectId: "timetable-by-gerison",
-      storageBucket: "timetable-by-gerison.appspot.com",
-      messagingSenderId: "469339277350",
-      appId: "1:469339277350:web:4cb396ec1b2aa3b0bbfee7",
-      measurementId: "G-3YVFMZZBTT"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
 </body>
 
 </html>

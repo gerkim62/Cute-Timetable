@@ -231,7 +231,7 @@ export function readCSV(file) {
  // console.log('reading file')
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = event => {console.log(event.target.result);resolve(event.target.result)};
+   // reader.onload = event => {console.log(event.target.result);resolve(event.target.result)};
     reader.onerror = error => reject(error);
     reader.readAsText(file);
     //console.log(reader.result)
@@ -278,7 +278,7 @@ export function showToast(message, duration = 3000) {
   const animationDuration = 500
   propertiesCard_div.classList.add('hidden')
   const toastDurationInMillisecond = duration + animationDuration
-  console.log({ duration })
+  //console.log({ duration })
   const toast = document.createElement('div');
   toast.innerText = message
   toast.className = 'show toast'
@@ -498,6 +498,7 @@ export function createThemeInputs(themesContainer, themes) {
     const theme_label = themesContainer.querySelector(`#${theme.name}-label`)
  
     theme_label.style.backgroundColor=theme.colors.primary
+
     //console.log(theme_label,theme_label.style)
    // themesContainer.appendChild(input);
     /*
@@ -525,4 +526,62 @@ export function getFileExtension(file) {
   var fileNameParts = fileName.split('.');
   var fileExtension = fileNameParts[fileNameParts.length - 1];
   return fileExtension;
+}
+
+export function makeDraggable(element) {
+  let isDragging = false;
+  let currentX;
+  let currentY;
+  let initialX;
+  let initialY;
+  let xOffset = 0;
+  let yOffset = 0;
+
+  element.addEventListener("mousedown", dragStart);
+  element.addEventListener("mouseup", dragEnd);
+  element.addEventListener("mousemove", drag);
+  element.addEventListener("touchstart", dragStart);
+  element.addEventListener("touchend", dragEnd);
+  element.addEventListener("touchmove", drag);
+//dragStart({type:''})
+  function dragStart(e) {
+    console.log(e.touches[0].clientY)
+    if (e.type === "mousedown") {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+    } else {
+      initialX = e.touches[0].clientX - xOffset;
+      initialY = e.touches[0].clientY - yOffset;
+    }
+
+    if (e.target === element) {
+      isDragging = true;
+    }
+  }
+
+  function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+
+    isDragging = false;
+  }
+
+  function drag(e) {
+    if (isDragging) {
+      e.preventDefault();
+      if (e.type === "mousemove") {
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+      } else {
+        currentX = e.touches[0].clientX - initialX;
+        currentY = e.touches[0].clientY - initialY;
+      }
+
+      xOffset = currentX;
+      yOffset = currentY;
+
+      element.style.top = currentY + "px";
+      element.style.left = currentX + "px";
+    }
+  }
 }

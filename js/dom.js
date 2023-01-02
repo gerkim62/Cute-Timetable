@@ -37,3 +37,4 @@ const notNowButton = document.getElementById('not-now')
 
 const themesContainer_div = document.querySelector('#themes-container');
 const themePickerOverlay_div= document.getElementById('theme-picker-overlay')
+const themesContainerOpener_div = document.getElementById('themes-container-opener')
