@@ -137,7 +137,7 @@ export function createBlankTimetable({ leftHeaders, topHeaders, intersection, bl
 
     const headerName_th = document.createElement('th')
     headerName_th.innerHTML = leftHeader
-    leftHeader_th.classList.add('day')
+    headerName_th.classList.add('day')
     leftHeader_tr.append(headerName_th)
 
     topHeaders.forEach(topHeader => {
