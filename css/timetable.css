@@ -18,7 +18,7 @@
   max-width: 98%;
   width: max-content;
   height: max-content;
-
+background: #001d54;
 }
 
 table,
@@ -36,14 +36,32 @@ table tr th p{
   margin: 0;
 }
 
-tr.timestamps{
-  border-bottom: 1px solid yellow !important;
+tr.timestamps th{
+  border-bottom: 2px solid white;
+}
+
+tr.timestamps p{
+  font-weight: bold;
+  color: white;
+}
+
+tr.timestamps th {
+  border-left: 2px solid yellow !important;
+}
+
+tr.timestamps th:first-child{
+  border-left: 0 !important;
+}
+
+tr.timestamps th:nth-child(2) {
+  border-left: 2px solid white !important;
 }
 
 table {
   border-collapse: collapse;
   background: var(--color-primary);
   background: #001d54;
+  outline: 2px solid white;
 }
 
 table th{
@@ -62,11 +80,17 @@ table th:first-child{
 }
 
 table tfoot{
-  border-top: 1px solid yellow;
+  /*outline: 1px solid yellow;*/
+  box-shadow: 0 -2px 0 white;
   color: yellow !important;
   position: relative;
   z-index: 9999999999999;
   
+}
+
+tfoot {
+  background: #001d54;
+  transform: translateY(-1px);
 }
 
 tfoot p{
@@ -84,26 +108,41 @@ table td {
 }
 
 
+table caption{
+  background: #001d54;
+  color: yellow;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+  letter-spacing: .5px;
+  padding:2.5px;
+}
+
+
 table td:hover{
   
   opacity: .6;
 }
 
 table td.following-unscheduled {
-  border-left: 1px solid rgba(0, 0, 0, .2);
+  border-left: 2px solid rgba(255, 255, 255, .5);
 }
 
 table td.below-unscheduled {
-  border-top: 1px solid rgba(0, 0, 0, .2);
+  border-top: 2px solid rgba(255, 255, 255, .5);
 }
 
 table td.unscheduled {
   background: transparent;
-  color: rgba(0, 0, 0, .25);
+  color: rgba(255, 255, 255, .5);
 }
 
-td.day:last-child{
-  background: red !important;
+th.day{
+  border-bottom: 2px solid white;
+  text-transform: uppercase;
+}
+
+th.day + td{
+  border-left: 2px solid white;
 }
 
 /*card*/
