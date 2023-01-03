@@ -291,12 +291,13 @@ button:active {
   transform: translate(0%);
 
   z-index: 100;
+  transition: .34s !important;
 }
 
-#themes-container.showing {
-  animation: showThemePicker 10ms ease;
+/*#themes-container.showing {
+  animation: showThemePicker 100ms ease !important;
   animation-fill-mode: forwards;
-}
+}*/
 
 #themes-container .overlay {
   position: absolute;
@@ -367,7 +368,7 @@ button:active {
 
 @keyframes showThemePicker {
   100% {
-    transform: translateX(0);
+    transform: translate(0%) !important;
   }
 }
 

@@ -18,7 +18,7 @@ const unscheduledLabel = 'No Class'
 const fileInput = document.getElementById('real-file');
 fileInput.addEventListener('change', event => {
   const file = event.target.files[0];
-  //console.log(file,"file")
+  console.log(file,"file")
   readCSV(file).then((csvString, error) => {
     //console.log({csvString,error});
 
@@ -175,6 +175,7 @@ themesContainerOpener_div.addEventListener('click', () => {
 })
 
 function showThemePicker() {
+  themesContainer_div.style.transform = 'translateX(0%)'
   themesContainer_div.classList.add('showing')
   themesContainerOpener_div.style.transform = 'scale(.1)'
   show(themesContainer_div)
@@ -182,6 +183,7 @@ function showThemePicker() {
 
 function hideThemePicker() {
   themesContainer_div.classList.remove('showing')
+  themesContainer_div.style.transform = 'translateX(-100%)'
   themesContainerOpener_div.style.transform = 'scale(1)'
   hide(themesContainer_div)
 }
