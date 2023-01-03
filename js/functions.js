@@ -120,6 +120,7 @@ export function createBlankTimetable({ leftHeaders, topHeaders, intersection, bl
 
 
   const topHeaders_tr = document.createElement('tr')
+  topHeaders_tr.classList.add('timestamps')
   const intersection_th = document.createElement('th')
   intersection_th.innerHTML = intersection
   topHeaders_tr.append(intersection_th)

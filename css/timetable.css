@@ -36,6 +36,10 @@ table tr th p{
   margin: 0;
 }
 
+tr.timestamps{
+  border-bottom: 1px solid yellow;
+}
+
 table {
   border-collapse: collapse;
   background: var(--color-primary);
@@ -81,6 +85,7 @@ table td {
 
 
 table td:hover{
+  
   opacity: .6;
 }
 
