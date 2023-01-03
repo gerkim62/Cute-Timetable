@@ -37,7 +37,7 @@ table tr th p{
 }
 
 tr.timestamps{
-  border-bottom: 1px solid yellow;
+  border-bottom: 1px solid yellow !important;
 }
 
 table {
