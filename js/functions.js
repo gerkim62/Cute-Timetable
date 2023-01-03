@@ -117,6 +117,7 @@ export function getCourses(csv) {
 
 export function createBlankTimetable({ leftHeaders, topHeaders, intersection, blankCellLabel }) {
   const timetable_table = document.createElement('table')
+  
 
   const topHeaders_tr = document.createElement('tr')
   const intersection_th = document.createElement('th')
@@ -147,7 +148,7 @@ export function createBlankTimetable({ leftHeaders, topHeaders, intersection, bl
       timetable_table.append(leftHeader_tr)
     })
   })
-
+addCopyrightNotice(timetable_table)
   return timetable_table
 }
 
@@ -584,4 +585,17 @@ export function makeDraggable(element) {
       element.style.left = currentX + "px";
     }
   }
+}
+
+function addCopyrightNotice(table, copyrightNotice = `Created with Cute Timetable by Gerison &copy; ${new Date().getFullYear()}. All rights reserved.`) {
+  const tfoot = document.createElement("tfoot");
+  const tr = document.createElement("tr");
+  const td = document.createElement("td");
+  td.setAttribute("colspan", table.getElementsByTagName("th").length);
+  const p = document.createElement("p");
+  p.textContent = copyrightNotice;
+  td.appendChild(p);
+  tr.appendChild(td);
+  tfoot.appendChild(tr);
+  table.appendChild(tfoot);
 }
