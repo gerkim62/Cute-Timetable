@@ -599,4 +599,17 @@ function addCopyrightNotice(table, copyrightNotice = `Created with Cute Timetabl
   tr.appendChild(td);
   tfoot.appendChild(tr);
   table.appendChild(tfoot);
+  
+  let pWidth = p.offsetWidth;
+
+  // If the p element width is greater than the table width, reduce the font size until it fits
+  while (pWidth > tableWidth) {
+    console.log('tryna reduce fontsize')
+    // Reduce the font size
+    p.style.fontSize = (parseInt(p.style.fontSize) - 1) + "px";
+
+    // Recheck the width of the p element
+    pWidth = p.offsetWidth;
+  }
+
 }
