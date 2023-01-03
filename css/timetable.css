@@ -60,8 +60,12 @@ table th:first-child{
 table tfoot{
   border-top: 1px solid yellow;
   color: yellow !important;
-  font-size: .5rem !important;
-  background: red !important;
+  
+}
+
+tfoot p{
+  color: yellow;
+  text-align: center;
 }
 
 table td {
