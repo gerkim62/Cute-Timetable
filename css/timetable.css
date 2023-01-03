@@ -57,6 +57,10 @@ table th:first-child{
   padding: 0 10px;
 }
 
+table tfoot{
+  font-size: .5rem !important;
+}
+
 table td {
   background: var(attr(data-color));
   color: White;
