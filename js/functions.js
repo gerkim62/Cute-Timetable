@@ -265,7 +265,7 @@ export async function showProperties(courseCode, courses) {
       courseLocation_p.innerHTML = course.location
       courseInstructor_p.innerHTML = course.instructor
 
-      propertiesCard_div.style.
+      //propertiesCard_div.style.
     }
   });
   (!alreadyShowing || showingPropertiesFor === null) ? await fadeIn(propertiesCard_div): ""
