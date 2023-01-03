@@ -20,18 +20,18 @@ fileInput.addEventListener('change', event => {
   const file = event.target.files[0];
   console.log(file,"file")
   readCSV(file).then((csvString, error) => {
-    //console.log({csvString,error});
+    console.log({csvString,error});
 
     courses = getCourses(csvString)
-    //console.log(courses)
+    console.log(courses)
 
 
-    ////console.log(courses)
+    console.log(courses)
     const allDays = getDays(courses)
     if (allDays.length === 0) return showToast('Oops! That file does not seem to contain a valid CSV timetable. Please check.', 5000)
-    ////////console.log(allDays)
+    console.log(allDays)
     const allTimestampsFormarted = getFormartedTimestamps(courses)
-    ////////console.log(allTimestampsFormarted)
+    console.log(allTimestampsFormarted)
     const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
     ////////console.log(blankTimetable)
     const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
