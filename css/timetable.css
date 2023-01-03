@@ -39,6 +39,7 @@ table tr th p{
 table {
   border-collapse: collapse;
   background: var(--color-primary);
+  background: #001d54;
 }
 
 table th{
