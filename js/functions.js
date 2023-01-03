@@ -10,7 +10,7 @@ export function cleanCsv(csv) {
     // Remove the redundant quotation marks
     let cleanedRow = row.replace(/"/g, '');
 
-    // Remove empty rows
+    // Removce empty rows
     if (cleanedRow.trim() !== '') {
       cleanedRows.push(cleanedRow);
     }
