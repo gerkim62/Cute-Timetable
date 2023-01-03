@@ -59,8 +59,9 @@ table th:first-child{
 
 table tfoot{
   border-top: 1px solid yellow;
-  color: yellow;
+  color: yellow !important;
   font-size: .5rem !important;
+  background: red !important;
 }
 
 table td {

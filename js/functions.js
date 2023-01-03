@@ -588,7 +588,7 @@ export function makeDraggable(element) {
   }
 }
 
-function addCopyrightNotice(table, copyrightNotice = `Created with Cute Timetable by Gerison &copy; ${new Date().getFullYear()}. All rights reserved.`) {
+function addCopyrightNotice(table, copyrightNotice = `Created by Gerison &copy; ${new Date().getFullYear()}. All rights reserved.`) {
   const tfoot = document.createElement("tfoot");
   const tr = document.createElement("tr");
   const td = document.createElement("td");
