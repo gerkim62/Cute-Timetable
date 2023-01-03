@@ -98,7 +98,7 @@ table td.unscheduled {
 }
 
 td.day:last-child{
-  background: red;
+  background: red !important;
 }
 
 /*card*/
