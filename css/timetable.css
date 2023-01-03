@@ -50,7 +50,7 @@ table th{
   color: #1B1212;
   color:var(--color-primary)40;
  color: rgba(101, 104, 211, .85);
- color:white;
+ color:yellow;
 }
 
 table th:first-child{
