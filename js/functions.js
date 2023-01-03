@@ -600,7 +600,7 @@ function addCopyrightNotice(table, copyrightNotice = `Created with Cute Timetabl
   tfoot.appendChild(tr);
   table.appendChild(tfoot);
   
-  const tableWidth = tabel.offsetWidth
+  const tableWidth = table.offsetWidth
   let pWidth = p.offsetWidth;
 
   // If the p element width is greater than the table width, reduce the font size until it fits
