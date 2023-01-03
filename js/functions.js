@@ -231,7 +231,7 @@ export function readCSV(file) {
  // console.log('reading file')
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-   // reader.onload = event => {console.log(event.target.result);resolve(event.target.result)};
+    reader.onload = event => {/*console.log(event.target.result)*/;resolve(event.target.result)};
     reader.onerror = error => reject(error);
     reader.readAsText(file);
     //console.log(reader.result)
