@@ -53,6 +53,7 @@ fileInput.addEventListener('change', event => {
     hideCsvUploadUI()
     show(cta_div)
   }).catch(e => {
+    console.log(e)
     showToast('Oops! Could not read file. Make sure the file is not corrupt or empty.')
   });
 });
