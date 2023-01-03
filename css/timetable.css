@@ -105,6 +105,8 @@ table td {
   padding: 5px;
   font-size: .75rem;
   white-space: nowrap;
+  padding-left:10px;
+  padding-right: 10px;
 }
 
 
