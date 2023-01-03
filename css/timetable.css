@@ -79,7 +79,7 @@ table td {
   white-space: nowrap;
 }
 
-tr:first-child{
+table:first-child{
   background: red;
 }
 
