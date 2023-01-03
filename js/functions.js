@@ -186,6 +186,9 @@ export function getFormartedTimestamps(courses) {
 
 export function fillBlankTimetable(blankTimetable, courses, unscheduledLabel) {
   const finalTimetable = blankTimetable.cloneNode(true)
+  const caption = document.createElement('caption')
+  caption.textContent = 'Gerison\'s Timetable'
+  finalTimetable.appendChild(caption)
   courses.forEach(course => {
     course.days.forEach(day => {
       const formartedTimestamp = formatTimestamp(day.timestamps)
