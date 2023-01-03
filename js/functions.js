@@ -117,7 +117,7 @@ export function getCourses(csv) {
 
 export function createBlankTimetable({ leftHeaders, topHeaders, intersection, blankCellLabel }) {
   const timetable_table = document.createElement('table')
-  
+
 
   const topHeaders_tr = document.createElement('tr')
   const intersection_th = document.createElement('th')
@@ -148,7 +148,7 @@ export function createBlankTimetable({ leftHeaders, topHeaders, intersection, bl
       timetable_table.append(leftHeader_tr)
     })
   })
-addCopyrightNotice(timetable_table)
+  addCopyrightNotice(timetable_table)
   return timetable_table
 }
 
@@ -229,10 +229,11 @@ function addStylingClasses(table, unscheduledLabel) {
 }
 
 export function readCSV(file) {
- // console.log('reading file')
+  // console.log('reading file')
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = event => {/*console.log(event.target.result)*/;resolve(event.target.result)};
+    reader.onload = event => { /*console.log(event.target.result)*/ ;
+      resolve(event.target.result) };
     reader.onerror = error => reject(error);
     reader.readAsText(file);
     //console.log(reader.result)
@@ -490,18 +491,18 @@ export function showSavedTimetables() {
 
 export function createThemeInputs(themesContainer, themes) {
   themes.forEach(theme => {
-      const input = `<input type="radio" id="${theme.name}" name="theme" value="${theme.name}">
+    const input = `<input type="radio" id="${theme.name}" name="theme" value="${theme.name}">
   <label id='${theme.name}-label' for="${theme.name}">${theme.name.split('-')[0]}</label>`
-    
-    themesContainer.innerHTML+=input
-    
+
+    themesContainer.innerHTML += input
+
     const theme_input = themesContainer.querySelector(`#${theme.name}`)
     const theme_label = themesContainer.querySelector(`#${theme.name}-label`)
- 
-    theme_label.style.backgroundColor=theme.colors.primary
+
+    theme_label.style.backgroundColor = theme.colors.primary
 
     //console.log(theme_label,theme_label.style)
-   // themesContainer.appendChild(input);
+    // themesContainer.appendChild(input);
     /*
     const input = document.createElement('input');
     input.type = 'radio';
@@ -544,7 +545,7 @@ export function makeDraggable(element) {
   element.addEventListener("touchstart", dragStart);
   element.addEventListener("touchend", dragEnd);
   element.addEventListener("touchmove", drag);
-//dragStart({type:''})
+  //dragStart({type:''})
   function dragStart(e) {
     console.log(e.touches[0].clientY)
     if (e.type === "mousedown") {
@@ -593,7 +594,7 @@ function addCopyrightNotice(table, copyrightNotice = `Created with Cute Timetabl
   const td = document.createElement("td");
   td.setAttribute("colspan", table.getElementsByTagName("th").length);
   const p = document.createElement("p");
-  p.textContent = copyrightNotice;
+  p.innerHTML = copyrightNotice;
   td.appendChild(p);
   tr.appendChild(td);
   tfoot.appendChild(tr);
