@@ -79,6 +79,10 @@ table td {
   white-space: nowrap;
 }
 
+tr:first-child{
+  background: red;
+}
+
 table td:hover{
   opacity: .6;
 }
