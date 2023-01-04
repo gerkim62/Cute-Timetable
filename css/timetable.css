@@ -1,7 +1,7 @@
 #timetable-container{
   overflow-x: visible;
   padding: 5px;
-  margin: 5px;
+  margin: 5px 0;
   margin-left: auto;
   margin-right: auto;
   letter-spacing: .5px;
@@ -15,7 +15,7 @@
   z-index: 201;
   
  /* box-shadow: inset rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, inset rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;*/
-  max-width: 98%;
+  max-width: 100%;
   width: max-content;
   height: max-content;
 background: #001d54;
@@ -37,7 +37,7 @@ table tr th p{
 }
 
 tr.timestamps th{
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
 }
 
 tr.timestamps p{
@@ -46,7 +46,7 @@ tr.timestamps p{
 }
 
 tr.timestamps th {
-  border-left: 2px solid yellow !important;
+  border-left: 1.5px solid yellow !important;
 }
 
 tr.timestamps th:first-child{
@@ -54,14 +54,14 @@ tr.timestamps th:first-child{
 }
 
 tr.timestamps th:nth-child(2) {
-  border-left: 2px solid white !important;
+  border-left: 1.5px solid white !important;
 }
 
 table {
   border-collapse: collapse;
   background: var(--color-primary);
   background: #001d54;
-  outline: 2px solid white;
+  outline: 1px solid white;
 }
 
 table th{
@@ -81,7 +81,7 @@ table th:first-child{
 
 table tfoot{
   /*outline: 1px solid yellow;*/
-  box-shadow: 0 -2px 0 white;
+  box-shadow: 0 -1px 0 white;
   color: yellow !important;
   position: relative;
   z-index: 9999999999999;
@@ -96,6 +96,7 @@ tfoot {
 tfoot p{
   color: yellow;
   text-align: center;
+  font-weight: normal;
 }
 
 table td {
@@ -112,7 +113,7 @@ table caption{
   background: #001d54;
   color: yellow;
   font-weight: bold;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
   letter-spacing: .5px;
   padding:2.5px;
 }
@@ -124,11 +125,11 @@ table td:hover{
 }
 
 table td.following-unscheduled {
-  border-left: 2px solid rgba(255, 255, 255, .5);
+  border-left: 1px solid rgba(255, 255, 255, .5);
 }
 
 table td.below-unscheduled {
-  border-top: 2px solid rgba(255, 255, 255, .5);
+  border-top: 1px solid rgba(255, 255, 255, .5);
 }
 
 table td.unscheduled {
@@ -137,12 +138,12 @@ table td.unscheduled {
 }
 
 th.day{
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
   text-transform: uppercase;
 }
 
 th.day + td{
-  border-left: 2px solid white;
+  border-left: 1.5px solid white;
 }
 
 /*card*/
