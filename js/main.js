@@ -1,4 +1,4 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable, saveTimetableToLocalStorage, retrieveTimetableFromLocalStorage, showTimetable } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable, saveCoursesToLocalStorage, retrieveCoursesFromLocalStorage, showTimetable } from './functions.js'
 
 ////console.log(retrieveTimetables(), 'updated')
 /*const lastSavedTimetable = retrieveTimetableFromLocalStorage()
@@ -7,9 +7,10 @@ if(lastSavedTimetable){
 }*/
 
 showToast('loaded')
-let courses = retrieveCoursesFromLocalStorage;
+let courses = retrieveCoursesFromLocalStorage();
 
 if(courses){
+  console.log(courses)
   showTimetable(courses)
 }
 

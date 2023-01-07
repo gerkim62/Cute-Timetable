@@ -644,7 +644,7 @@ function addCopyrightNotice(table, copyrightNotice = `Created by Gerison &copy; 
 
 }
 
-export function saveTimetableToLocalStorage(courses) {
+export function saveCoursesToLocalStorage(courses) {
 
   localStorage.setItem("courses", JSON.stringify(courses));
 }
