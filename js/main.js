@@ -1,6 +1,11 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable, saveTimetableToLocalStorage, retrieveTimetableFromLocalStorage } from './functions.js'
 
 ////console.log(retrieveTimetables(), 'updated')
+const lastSavedTimetable = retrieveTimetableFromLocalStorage()
+if(lastSavedTimetable){
+  timetableContainer_div.innerHTML = lastSavedTimetable
+}
+
 showToast('loaded')
 let courses;
 
@@ -35,7 +40,7 @@ fileInput.addEventListener('change', event => {
     const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
     ////////console.log(blankTimetable)
     const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
-
+    saveTimetableToLocalStorage(finalTimetable)
     const timetable = {
       name: '',
       id: 1,
@@ -45,7 +50,7 @@ fileInput.addEventListener('change', event => {
     }
 
     storeTimetable(timetable)
-
+    
     ////console.log(finalTimetable)
 
     timetableContainer_div.append(finalTimetable)
@@ -71,7 +76,7 @@ timetableContainer_div.addEventListener('click', e => {
 
 /*ui elements*/
 
-newTimetable_li.addEventListener('click', showCsvUploadUI)
+//newTimetable_li.addEventListener('click', showCsvUploadUI)
 
 closePropertiesCard_button.addEventListener('click', hideProperties)
 propertiesCardOverlay_div.addEventListener('click', hideProperties, showLoader, hideLoader)
@@ -116,7 +121,7 @@ discard_button.addEventListener('click', () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/serviceWorker.js').then(function(registration) {
-      ////console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      ////console.log('ServiceWorker registration successful' with scope: ', registration.scope);
     }, function(err) {
       ////console.log('ServiceWorker registration failed: ', err);
     });

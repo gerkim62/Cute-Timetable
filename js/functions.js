@@ -620,3 +620,19 @@ function addCopyrightNotice(table, copyrightNotice = `Created by Gerison &copy; 
   }
 
 }
+
+export function saveTimetableToLocalStorage(timetableDiv) {
+  // Get the innerHTML content of the div
+  const timetableContent = timetableDiv.innerHTML;
+
+  // Save the content to local storage
+  localStorage.setItem("timetableContent", timetableContent);
+}
+
+export function retrieveTimetableFromLocalStorage() {
+  // Retrieve the content from local storage
+  const timetableContent = localStorage.getItem("timetableContent");
+
+  // Return the content
+  return timetableContent;
+}
