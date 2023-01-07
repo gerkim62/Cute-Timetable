@@ -45,7 +45,7 @@ fileInput.addEventListener('change', event => {
     const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
     ////////console.log(blankTimetable)
     const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
-    saveTimetableToLocalStorage(finalTimetable)
+   // saveTimetableToLocalStorage(finalTimetable)
     const timetable = {
       name: '',
       id: 1,
