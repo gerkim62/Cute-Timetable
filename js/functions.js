@@ -622,12 +622,16 @@ function addCopyrightNotice(table, copyrightNotice = `Created by Gerison &copy; 
 }
 
 export function saveTimetableToLocalStorage(timetableDiv) {
-  // Get the innerHTML content of the div
-  const timetableContent = timetableDiv.innerHTML;
+  // Make a deep copy of the timetable div
+  const timetableCopy = timetableDiv.cloneNode(true);
+
+  // Get the serialized HTML content of the copy
+  const timetableContent = timetableCopy.outerHTML;
 
   // Save the content to local storage
   localStorage.setItem("timetableContent", timetableContent);
 }
+
 
 export function retrieveTimetableFromLocalStorage() {
   // Retrieve the content from local storage
