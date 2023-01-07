@@ -11,7 +11,7 @@ showToast('loaded')
 let courses = retrieveCoursesFromLocalStorage();
 
 if(courses){
-  alert(courses)
+  //alert(courses)
   showTimetable(courses, unscheduledLabel)
 }
 
