@@ -1,13 +1,17 @@
-import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable, saveTimetableToLocalStorage, retrieveTimetableFromLocalStorage } from './functions.js'
+import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable, saveTimetableToLocalStorage, retrieveTimetableFromLocalStorage, showTimetable } from './functions.js'
 
 ////console.log(retrieveTimetables(), 'updated')
-const lastSavedTimetable = retrieveTimetableFromLocalStorage()
+/*const lastSavedTimetable = retrieveTimetableFromLocalStorage()
 if(lastSavedTimetable){
   timetableContainer_div.innerHTML = lastSavedTimetable
-}
+}*/
 
 showToast('loaded')
-let courses;
+let courses = retrieveCoursesFromLocalStorage;
+
+if(courses){
+  showTimetable(courses)
+}
 
 customBtn.addEventListener("click", function() {
   realFileBtn.click();
@@ -48,7 +52,7 @@ fileInput.addEventListener('change', event => {
       allDays,
       allTimestampsFormarted
     }
-
+    saveCoursesToLocalStorage(courses)
     storeTimetable(timetable)
     
     ////console.log(finalTimetable)

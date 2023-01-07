@@ -237,8 +237,10 @@ export function readCSV(file) {
   // console.log('reading file')
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = event => { /*console.log(event.target.result)*/ ;
-      resolve(event.target.result) };
+    reader.onload = event => {
+      /*console.log(event.target.result)*/ ;
+      resolve(event.target.result)
+    };
     reader.onerror = error => reject(error);
     reader.readAsText(file);
     //console.log(reader.result)
@@ -478,15 +480,36 @@ export function showCustomInstallPrompt(event) {
   });
 }
 
-function showTimetable(timetable) {
-  const allDays = getDays(timetable.courses)
-  if (allDays.length === 0) return showToast('Oops! That CSV does not seem to contain a valid timetable.', 5000)
-  ////console.log(allDays)
+export function showTimetable(courses) {
+  console.log(courses)
+
+
+  console.log(courses)
+  const allDays = getDays(courses)
+  if (allDays.length === 0) return showToast('Oops! That file does not seem to contain a valid CSV timetable. Please check.', 5000)
+  console.log(allDays)
   const allTimestampsFormarted = getFormartedTimestamps(courses)
-  ////console.log(allTimestampsFormarted)
+  console.log(allTimestampsFormarted)
   const blankTimetable = createBlankTimetable({ leftHeaders: allDays, topHeaders: allTimestampsFormarted, intersection: '<p>Time</p> <p>Days</p>', blankCellLabel: unscheduledLabel })
-  ////console.log(blankTimetable)
+  ////////console.log(blankTimetable)
   const finalTimetable = fillBlankTimetable(blankTimetable, courses, unscheduledLabel)
+  saveTimetableToLocalStorage(finalTimetable)
+  const timetable = {
+    name: '',
+    id: 1,
+    courses,
+    allDays,
+    allTimestampsFormarted
+  }
+
+  storeTimetable(timetable)
+
+  ////console.log(finalTimetable)
+
+  timetableContainer_div.append(finalTimetable)
+  preventElementOverflow(finalTimetable, timetableContainer_div)
+  hideCsvUploadUI()
+  show(cta_div)
 }
 
 export function showSavedTimetables() {
@@ -605,7 +628,7 @@ function addCopyrightNotice(table, copyrightNotice = `Created by Gerison &copy; 
   tr.appendChild(td);
   tfoot.appendChild(tr);
   table.appendChild(tfoot);
-  
+
   const tableWidth = table.offsetWidth
   let pWidth = p.offsetWidth;
 
@@ -621,22 +644,14 @@ function addCopyrightNotice(table, copyrightNotice = `Created by Gerison &copy; 
 
 }
 
-export function saveTimetableToLocalStorage(timetableDiv) {
-  // Make a deep copy of the timetable div
-  const timetableCopy = timetableDiv.cloneNode(true);
+export function saveTimetableToLocalStorage(courses) {
 
-  // Get the serialized HTML content of the copy
-  const timetableContent = timetableCopy.outerHTML;
-
-  // Save the content to local storage
-  localStorage.setItem("timetableContent", timetableContent);
+  localStorage.setItem("courses", JSON.stringify(courses));
 }
 
 
-export function retrieveTimetableFromLocalStorage() {
+export function retrieveCoursesFromLocalStorage() {
   // Retrieve the content from local storage
-  const timetableContent = localStorage.getItem("timetableContent");
+  return JSON.parse(localStorage.getItem('courses'));
 
-  // Return the content
-  return timetableContent;
 }
