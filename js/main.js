@@ -10,7 +10,7 @@ showToast('loaded')
 let courses = retrieveCoursesFromLocalStorage();
 
 if(courses){
-  console.log(courses)
+  alert(courses)
   showTimetable(courses)
 }
 
