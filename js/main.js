@@ -1,5 +1,5 @@
 import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable, saveCoursesToLocalStorage, retrieveCoursesFromLocalStorage, showTimetable } from './functions.js'
-
+hideThemePicker()
 ////console.log(retrieveTimetables(), 'updated')
 /*const lastSavedTimetable = retrieveTimetableFromLocalStorage()
 if(lastSavedTimetable){
