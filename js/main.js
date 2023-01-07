@@ -1,5 +1,6 @@
 import { readCSV, getCourses, getDays, getFormartedTimestamps, createBlankTimetable, fillBlankTimetable, showProperties, hideProperties, showToast, showCsvUploadUI, hideCsvUploadUI, preventElementOverflow, hide, show, convertElementToImage, downloadImage, showLoader, hideLoader, showCustomInstallPrompt, storeTimetable, retrieveTimetables, createThemeInputs, getCurrentTheme, storeCurrentTheme, getFileExtension, makeDraggable, saveCoursesToLocalStorage, retrieveCoursesFromLocalStorage, showTimetable } from './functions.js'
 hideThemePicker()
+const unscheduledLabel = 'No Class'
 ////console.log(retrieveTimetables(), 'updated')
 /*const lastSavedTimetable = retrieveTimetableFromLocalStorage()
 if(lastSavedTimetable){
@@ -11,7 +12,7 @@ let courses = retrieveCoursesFromLocalStorage();
 
 if(courses){
   alert(courses)
-  showTimetable(courses)
+  showTimetable(courses, unscheduledLabel)
 }
 
 customBtn.addEventListener("click", function() {
@@ -20,7 +21,7 @@ customBtn.addEventListener("click", function() {
 });
 
 
-const unscheduledLabel = 'No Class'
+
 
 
 //const csvString = getCsvString()

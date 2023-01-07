@@ -480,7 +480,7 @@ export function showCustomInstallPrompt(event) {
   });
 }
 
-export function showTimetable(courses) {
+export function showTimetable(courses, unscheduledLabel) {
   console.log(courses)
 
 
