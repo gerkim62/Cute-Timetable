@@ -7,11 +7,24 @@
   width: 250px;
   padding: 20px;
   box-sizing: border-box;
-  background-color: var(--color-primary);
+  background-color: var(--color-secondary);
   box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.14), 1px 0 10px 0 rgba(0, 0, 0, 0.12), 2px 0 4px -1px rgba(0, 0, 0, 0.3);
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
   z-index: 500;
+}
+
+nav::after{
+  content: "";
+  width: 200vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
 }
 
 .nav i{
@@ -40,6 +53,7 @@
   align-items: center;
   border-radius: 5px;
   color:var(--color-secondary);
+  color: black;
   word-wrap: nowrap;
   display: flex;
   align-items: center;

@@ -55,6 +55,7 @@ header {
 .upload-message {
   max-width: 80vw;
   text-align: center;
+  
   margin: 10px;
   margin-top: 5px;
   color: black;
@@ -62,7 +63,7 @@ header {
   letter-spacing: .5px;
   font-weight: 400;
   color: var(--color-primary);
-
+color: black;
   font-family: "Poppins", 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
