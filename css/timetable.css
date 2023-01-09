@@ -112,6 +112,7 @@ table td {
 table td::before {
   content: "\f0a4";
   font-family: "Font Awesome 5 Free";
+  color: yellow;
 }
 
 table caption{
