@@ -109,7 +109,7 @@ table td {
   white-space: nowrap;
 }
 
-table td::before {
+table td:hover::before {
   content: "\f0a4";
   font-family: "Font Awesome 5 Free";
   color: yellow;
