@@ -109,6 +109,10 @@ table td {
   white-space: nowrap;
 }
 
+table td::before {
+  content: "\f0a4";
+  font-family: "Font Awesome 5 Free";
+}
 
 table caption{
   background: #001d54;
