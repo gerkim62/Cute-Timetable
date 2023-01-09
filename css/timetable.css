@@ -126,8 +126,8 @@ table caption{
 
 
 table td:hover{
-  
-  opacity: .6;
+font-weight: bolder;
+font-size: .8rem;
 }
 
 table td.following-unscheduled {
