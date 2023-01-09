@@ -109,7 +109,7 @@ table td {
   white-space: nowrap;
 }
 
-table td:hover::before {
+table td.scheduled:hover::before {
   content: "\f0a4";
   font-family: "Font Awesome 5 Free";
   color: yellow;
@@ -127,7 +127,6 @@ table caption{
 
 table td:hover{
 font-weight: bolder;
-font-size: .8rem;
 }
 
 table td.following-unscheduled {
